@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //for of --> Array, Strings
+        //for in --> objects
+
+        //break
+        //continue
+
+        let arr1 = ["radhe", 121, "123",false]
+        for(let i=0; i<=arr1.length; i++){
+            if(arr1[i]=="123"){
+                //break
+                continue
+            }else {
+                console.log(i)
+            }
+            // console.log(arr1[i])
+        }
+        console.log("End itteration.")
+
+        let arr = ["ankit", 161, true]
+        console.log("'for y of arr' Starts Here.")
+        for(let y of arr){
+            console.log(y)
+        }
+        
+        let studentDetails ={
+            name : "Rahul",
+            roll_no: 122
+        }
+        studentDetails["name"]
+
+        for(let x in studentDetails){
+            console.log(studentDetails[x])
+        }
+    </script>
+</body>
+</html>

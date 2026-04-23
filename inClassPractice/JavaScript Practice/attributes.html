@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set and Get Attributes</title>
+</head>
+
+<body>
+
+    <p id="p1">Para 1</p>
+    <p id="p2">Para 2</p>
+
+    <script>
+        console.log(
+            document.getElementById("p1").setAttribute("class", "para")
+        )
+        console.log(
+            document.getElementById("p1").innerText
+        )
+        console.log(
+            document.getElementById("p2").setAttribute("class", "para")
+        )
+
+
+        console.log("has attribute style of id p2 = " + document.getElementById("p2").hasAttribute("style"))
+        console.log("has attribute class of id p2 = " + document.getElementById("p2").hasAttribute("class"))
+
+        console.log("attributes of id p2 = " + document.getElementById("p2").attributes)
+
+
+    </script>
+</body>
+
+</html>

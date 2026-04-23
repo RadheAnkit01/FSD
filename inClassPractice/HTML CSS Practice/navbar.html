@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        :root{
+            --pbgcolor : rgb(5, 168, 250);
+            --sbgcolor : rgb(158, 223, 255);
+            --ptxtcolor : rgb(47, 0, 255);
+            --stxtcolor : rgb(255, 0, 76);
+        }
+        body{
+            padding: 10px;
+        }
+        nav{
+            background-color: var(--pbgcolor);
+            width: 200px;
+            height: 80vh;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+        }
+        body{
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            /* flex-wrap: wrap; */
+            gap: 20px;
+            background-color: var(--sbgcolor);
+        }
+        
+        .links{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        a{
+            text-decoration: none;
+            color: var(--ptxtcolor);
+        }
+        .logo{
+            color: var(--ptxtcolor);
+            margin-bottom: 20px;
+        }
+        .my-account{
+            margin-top: auto;
+            color: var(--ptxtcolor);
+        }
+        article p::first-letter{
+            color: var(--ptxtcolor);
+            font-size: 30px;
+
+            /* float: left; */
+        }
+        article p{
+            font-size: 20px;
+        }
+        article h1{
+            color: var(--stxtcolor);
+        }
+        @media screen  and (max-width:700px){
+            body{
+                grid-template-columns: 1fr;
+            }
+            article p{
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><h1> LOGO</h1></div>
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">Shopping</a>
+            <a href="#">Contacts Us</a>
+            <a href="#">Cart</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+        </div>
+        <div class="my-account">
+            <a href="#"><b>My Account</b></a>
+        </div>
+
+    </nav>
+    <div>
+        <article>
+            
+            <h1>Heading</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur earum perspiciatis veritatis similique delectus minus labore porro. Architecto fugit et unde eum minima facilis numquam cum tenetur amet cumque dicta vero culpa consequuntur eligendi consequatur quasi perspiciatis, voluptates sunt sequi voluptatem repudiandae inventore quas. Magni, quasi libero quaerat praesentium perferendis quia iure ex aperiam distinctio. In, eligendi nam adipisci non mollitia dignissimos obcaecati, nostrum illo ut aliquid officiis itaque blanditiis dolorem modi ipsa corrupti voluptatem aperiam. Pariatur, fugiat repellendus accusamus cumque quibusdam vero quis libero, deleniti nisi beatae repudiandae, suscipit animi molestias rem ad aperiam ipsum. Eius illo nam modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, unde? Voluptatibus corrupti, provident ea nesciunt magnam nemo cumque earum minus repudiandae porro laborum sit, reiciendis unde. Eligendi, amet rerum odit voluptas molestiae impedit iste nobis facere ipsum sequi tempora omnis fuga nam recusandae reprehenderit libero unde nostrum quibusdam perferendis ab magnam quisquam placeat. Sed non excepturi accusantium inventore. Est, ducimus velit. Enim, dolorem. Nihil tenetur, voluptate accusamus delectus maiores cum molestias sint magni natus doloribus rerum ut impedit et aut amet numquam minima laudantium, maxime repudiandae omnis reprehenderit quasi officiis. Vero praesentium cupiditate optio quaerat perspiciatis architecto molestias iure commodi iusto ipsa mollitia pariatur, nesciunt dolorem iste nulla non reprehenderit ratione omnis error deserunt assumenda laudantium nemo? Aut aspernatur, eius animi iste, dolorem ut hic laborum esse beatae praesentium earum et vitae? Sapiente nobis repellat perspiciatis earum minus tempora ab porro aspernatur expedita enim, eius quos numquam laudantium accusamus ipsam vitae magnam recusandae est. Quas porro mollitia sequi ratione! Quis dignissimos minus iusto vel tenetur vero beatae odit esse! Doloribus magni enim vel perferendis! Doloribus aut voluptates minus enim, tempora minima, cum cupiditate sint quibusdam, consectetur asperiores debitis quia provident excepturi? Sed quam reiciendis nihil quos consequuntur dicta voluptatibus beatae?</p>
+        </article>
+    </div>
+</body>
+</html>

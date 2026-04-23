@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do list</title>
+</head>
+
+<body>
+    <button onclick="createTask()">Create Task</button>
+    <input id="inputCreateTask" type="text">
+    <button onclick="deleteTask()">Delete Task</button>
+    <input id="inputDeleteTask" type="number">
+
+    <div id="taskSpace">
+
+    </div>
+
+    <script>
+
+        var taskSpace = document.getElementById("taskSpace")
+        var count = 0;
+
+        function createTask() {
+            var inputText = document.getElementById("inputCreateTask").value
+
+            var taskDetails = { taskNumber: ++count, taskText: inputText }
+
+            addTask(taskDetails)
+
+        }
+        function addTask(details) {
+
+            var newTaskSpace = document.createElement("div")
+            newTaskSpace.setAttribute("id", `task${details.taskNumber}`)
+            newTaskSpace.setAttribute("class", `task task${details.taskNumber}`)
+
+            var taskNumberSpace = document.createElement("p")
+            taskNumberSpace.innerText = details["taskNumber"];
+
+
+            var taskTextSpace = document.createElement("p")
+            taskTextSpace.innerText = details["taskText"];
+
+            newTaskSpace.append(taskNumberSpace, taskTextSpace)
+            taskSpace.appendChild(newTaskSpace)
+        }
+
+        function deleteyTask() {
+
+        }
+    </script>
+</body>
+
+</html>

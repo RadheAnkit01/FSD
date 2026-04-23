@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1" onclick="addnewli()">
+        add new list
+    </button>
+    <button id="btn1" onclick="fillcolor()">
+        Fill Color list
+    </button>
+    <button id="btn1" onclick="removelastlist()">
+        Remove last list
+    </button>
+    <ol id="main">
+        <li class="li"> List 1</li>
+    </ol>
+    <script>
+
+        let count = 1;
+        function addnewli() {
+            let nodelist = document.querySelectorAll(".li")
+            let li = document.createElement("li")
+            li.innerText = `List ${++count}`
+            li.setAttribute("class", "li")
+            let main = document.getElementById("main").appendChild(li)
+
+        }
+        function fillcolor() {
+            let nodelist = document.querySelectorAll(".li")
+            for (let i = 0; i < nodelist.length; i++) {
+                if (i % 2 == 0) {
+                    nodelist[i].style.color = "red"
+                } else {
+                    nodelist[i].style.color = "blue"
+                }
+            }
+        }
+        function removelastlist() {
+            let nodelist = document.querySelectorAll(".li")
+            // let li = document.createElement("li")
+            let main = document.getElementById("main").removeChild(li)
+        }
+
+    </script>
+</body>
+
+</html>

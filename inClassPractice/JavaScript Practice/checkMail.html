@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check Console</h1>
+    <script>
+        let mail = "unknown@yahoo.com"
+        let mailAtIndex = mail.indexOf("@")
+        username = mail.slice(0,mailAtIndex)
+        domain = mail.slice(mailAtIndex+1)
+        console.log("username = "+username)
+        console.log("domain = "+domain)
+    </script>
+</body>
+</html>

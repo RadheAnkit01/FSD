@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* display: flex; */
+            /* align-self: center; */
+            padding: 50px;
+            margin: 100px;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <h1 id="h1" class="heading heading-1" style="background-color: black; color: white; font-size: larger;"> Heading
+        </h1>
+        <button id="setTheme" onclick="toggleTheme()">Change theme</button>
+    </div>
+
+    <script>
+
+
+
+
+
+        let elem = document.getElementById("h1")
+        elem.style.color = "red"
+        console.log(elem.style.cssText)
+        elem.style.setProperty("color", "blue")
+        elem.setAttribute("style", "color")
+        let body = document.body
+
+
+        // classlist - to add,remove,replace, etc
+        elem.classList.add("newcls")
+        elem.classList.replace("newcls", "oldclass")
+        elem.classList.remove("oldclass")
+
+
+
+
+
+
+        let theme = document.getElementById("setTheme")
+
+        let theme1 = body.style.backgroundColor = "white"
+        //let theme2 = body.style.backgroundColor = "black"
+        var darktheme = "black"
+        var lighttheme = "white"
+        function toggleTheme() {
+            if (body.style.backgroundColor == lighttheme) {
+                body.style.backgroundColor = darktheme
+                body.style.color = "white"
+            } else {
+                body.style.backgroundColor = lighttheme
+                body.style.color = "black"
+
+            }
+        }
+    </script>
+</body>
+
+</html>

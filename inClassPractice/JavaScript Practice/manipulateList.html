@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Manipulate</title>
+</head>
+
+<body>
+    <button onclick="addElement()">Add List Items</button>
+    <button onclick="removeElement()">Remove Last Items</button>
+    <!-- <button onclick="removeElement()">Remove Last String</button> -->
+    <ol id="lists">
+
+    </ol>
+    <script>
+        var countList = 1;
+        var countString = 1;
+        function addElement() {
+            let list = document.getElementById("lists")
+            let li1 = document.createElement("li")
+            li1.setAttribute("id", `list${countList}`)
+            li1.innerText = `List ${countList++}`
+            let li2 = document.createElement("li")
+            li2.setAttribute("id", `list${countList}`)
+            li2.innerText = `List ${countList++}`
+
+            // list.appendChild(l1) ---> we cant append more than 1
+            // list.appendChild("Next") --->> gives error
+
+            list.append(li1, li2,)
+        }
+        function removeElement() {
+            countList--
+            let list = document.getElementById("lists")
+            let element = document.getElementById(`List${countList}`)
+            list.removeChild(element)
+        }
+    </script>
+</body>
+
+</html>

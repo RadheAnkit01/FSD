@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table id="table1" border="1">
+    </table>
+    <ol id="ol1">
+    </ol>
+
+
+    <script>
+
+
+        //for practice 
+        let arrTable = ["An", "Lk", "Pd", "Dr"]
+        let arrTable1 = [
+            {
+                name: "Sachin",
+                age: 56
+            },
+            {
+                name: "Golu",
+                age: 31
+            },
+            {
+                name: "Mohit",
+                age: 75
+            },
+            {
+                name: "Radhe",
+                age: 21
+            },
+            {
+                name: "Sahil",
+                age: 29
+            },
+        ]
+
+        let resultTable1 = arrTable.map((elem) => {
+            //create element -> 
+            let table = document.getElementById("table1")
+            let tr = document.createElement("tr")
+            let td = document.createElement("td")
+            td.innerText = elem
+            tr.appendChild(td)
+            table.appendChild(tr)
+        })
+        // let resultTable2 = arrTable1.map((elem) => {
+        //     //create element -> 
+        //     return elem.age
+        // })
+        // console.log(resultTable2)
+
+        let resultTable2 = arrTable1.reduce((acc, cval) => {
+            //create element -> 
+            return acc + cval.age, 0
+        })
+        console.log(resultTable2)
+
+        //add li elements on ordered list
+        let ol1 = document.getElementById("ol1")
+        let resultOrderList = arrTable1.map((elem) => {
+            let li = document.createElement("li")
+            li.innerText = elem.name
+            ol1.appendChild(li)
+        })
+
+        //make a dropdown
+
+
+
+
+    </script>
+</body>
+
+</html>

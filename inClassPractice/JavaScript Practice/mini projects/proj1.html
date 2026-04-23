@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainBox {
+            display: flex;
+            align-items: flex-start;
+
+        }
+
+        #products {
+            width: 80vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 5vh;
+
+
+        }
+
+        .box2 {
+            background-color: lightblue;
+            position: sticky;
+            top: 0px;
+
+            width: 20vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+
+        .productsBox {
+            background-color: aqua;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .cartProduct {
+            background-color: red;
+            margin: 5px;
+            padding: 5;
+            text-align: center;
+        }
+
+        #cart {
+            overflow-y: auto;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainBox">
+        <div id="products"></div>
+        <div class="box2">
+            <div>
+                <h2>Cart</h2>
+                <span id="totalPrice">Total Price : 00</span><br>
+                <span id="maxPrice">Max Price : 00</span>
+            </div>
+            <div id="cart"></div>
+        </div>
+
+    </div>
+    <script>
+        let productDetails = [
+            { id: 1, name: "Phone", price: 12999.00 },
+            { id: 2, name: "Earphone", price: 799.00 },
+            { id: 3, name: "Shoes", price: 1999.00 },
+            { id: 4, name: "Laptop", price: 55999.00 },
+            { id: 5, name: "Tablet", price: 18999.00 },
+            { id: 6, name: "Smart Watch", price: 4999.00 },
+            { id: 7, name: "Bluetooth Speaker", price: 2499.00 },
+            { id: 8, name: "Backpack", price: 1499.00 },
+            { id: 9, name: "Keyboard", price: 999.00 },
+            { id: 10, name: "Mouse", price: 499.00 },
+            { id: 11, name: "Monitor", price: 8999.00 },
+            { id: 12, name: "Printer", price: 6999.00 },
+            { id: 13, name: "Camera", price: 45999.00 },
+            { id: 14, name: "Power Bank", price: 1299.00 },
+            { id: 15, name: "Charger", price: 599.00 },
+            { id: 16, name: "USB Cable", price: 299.00 },
+            { id: 17, name: "Headphones", price: 1999.00 },
+            { id: 18, name: "Gaming Console", price: 39999.00 },
+            { id: 19, name: "Desk Lamp", price: 899.00 },
+            { id: 20, name: "Office Chair", price: 7499.00 },
+            { id: 21, name: "Water Bottle", price: 399.00 },
+            { id: 22, name: "T-Shirt", price: 599.00 },
+            { id: 23, name: "Jeans", price: 1499.00 },
+            { id: 24, name: "Jacket", price: 2499.00 },
+            { id: 25, name: "Sneakers", price: 2999.00 },
+            { id: 26, name: "Sandals", price: 999.00 },
+            { id: 27, name: "Sunglasses", price: 1299.00 },
+            { id: 28, name: "Wallet", price: 799.00 },
+            { id: 29, name: "Belt", price: 499.00 },
+            { id: 30, name: "Cap", price: 399.00 },
+            { id: 31, name: "Notebook", price: 199.00 },
+            { id: 32, name: "Pen Set", price: 299.00 },
+            { id: 33, name: "Desk Organizer", price: 699.00 },
+            { id: 34, name: "Whiteboard", price: 1499.00 },
+            { id: 35, name: "Bookshelf", price: 4999.00 },
+            { id: 36, name: "Bed Sheet", price: 1299.00 },
+            { id: 37, name: "Pillow", price: 799.00 },
+            { id: 38, name: "Blanket", price: 1999.00 },
+            { id: 39, name: "Curtains", price: 2499.00 },
+            { id: 40, name: "Wall Clock", price: 899.00 },
+            { id: 41, name: "Mixer Grinder", price: 3499.00 },
+            { id: 42, name: "Electric Kettle", price: 1499.00 },
+            { id: 43, name: "Toaster", price: 1299.00 },
+            { id: 44, name: "Microwave", price: 7999.00 },
+            { id: 45, name: "Refrigerator", price: 25999.00 },
+            { id: 46, name: "Washing Machine", price: 22999.00 },
+            { id: 47, name: "Air Conditioner", price: 35999.00 },
+            { id: 48, name: "Fan", price: 1999.00 },
+            { id: 49, name: "Heater", price: 2999.00 },
+            { id: 50, name: "Iron", price: 999.00 }
+        ];
+
+        let cart = []
+
+        let productContainer = document.getElementById("products")
+        let cartContainer = document.getElementById("cart")
+        let maxPriceBox = document.getElementById("maxPrice")
+        let totalPriceBox = document.getElementById("totalPrice")
+
+        let productData = productDetails.map((el) => {
+            return `<div class = "productsBox"> Name : ${el.name} <br> Price : ${el.price} <br> <button onclick = "addToCart(${el.id})" > Add to cart </button></div>`
+        })
+        productContainer.innerHTML = productData.join(" ")
+
+        function addToCart(id) {
+            let add = productDetails.find((elem) => {
+                return elem.id == id
+            })
+            if (!cart.includes(add)) {
+                cart.unshift(add)
+            }
+
+            let cardDetails = cart.map((elem) => {
+                return `<div class ="cartProduct"> ${elem.name} : ${elem.price} </div>`
+            })
+
+            cartContainer.innerHTML = cardDetails.join("")
+            totalPrice()
+            maxPrice()
+        }
+        function totalPrice() {
+            let total = cart.reduce((accumulator, currentValue) => {
+                return accumulator + currentValue.price
+            }, 0
+            );
+            totalPriceBox.innerText = `Total Price : ${total}`
+            console.log(total)
+        }
+        function maxPrice() {
+            let total = cart.reduce((accumulator, currentValue) => {
+                if (accumulator > currentValue.price)
+                    return accumulator
+                else
+                    return currentValue.price
+            }, 0
+            );
+            maxPriceBox.innerText = `Max Price : ${total}`
+            console.log(total)
+        }
+
+
+    </script>
+</body>
+
+</html>

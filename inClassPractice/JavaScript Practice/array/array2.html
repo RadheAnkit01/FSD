@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 2</title>
+</head>
+
+<body>
+
+
+    <script>
+        let arr1 = ["aman", "bunty", "chandan", "deepak"]
+        //for each loop
+        let result1 = arr1.forEach((elem, i, arr) => {
+            // console.log(`element : ${elem} i : ${i} arr : ${arr}`)
+            return 123
+        });
+
+        // console.log(result1) //it will print undifined
+
+        //map
+        let result2 = arr1.map((elem, i, arr) => {
+            // console.log(`element : ${elem} i : ${i} arr : ${arr}`)
+            return 123
+        });
+
+        // console.log(result2) //it will print (4) [123, 123, 123, 123]
+
+        //filter methods
+        let result3 = arr1.filter((elem, i, arr) => {
+            // console.log(`element : ${elem} i : ${i} arr : ${arr}`)
+            return elem > 'b'
+        });
+
+        // console.log(result3) //it will print (4) [123, 123, 123, 123]
+
+        //reduce methods -> 
+        let arr2 = [23, 65, 87, 34, 12, 43, 76, 87, 45, 34, 45, 70]
+        let result1arr2 = arr2.reduce((accumulator, currentValue) => {
+            // console.log(accumulator + "  " + currentValue)
+            return accumulator + currentValue
+        }, 12  //this is initial value
+        );
+
+        // console.log(result1arr2) //it will print (4) [123, 123, 123, 123]
+
+        //reduce right return  first initial valur and then right to left value/result of array.
+        let result2arr2 = arr2.reduceRight((accumulator, currentValue) => {
+            // console.log(accumulator + "  " + currentValue)
+            return accumulator + currentValue
+        }, 12  //this is initial value
+        );
+
+        // console.log(result2arr2) //it will print (4) [123, 123, 123, 123]
+
+        // every methods -> it will return true/false based on condition and work like and operator.
+        let result3arr2 = arr2.every((elem) => {
+            return elem > 40
+        })
+        // console.log(result3arr2)
+
+        // some methods -> it will return true/false based on condition and work like or operator.
+        let result4arr2 = arr2.some((elem) => {
+            return elem > 40
+        })
+        // console.log(result4arr2)
+
+        // indexof methods -> first index of given value.
+        let result5arr2 = arr2.indexOf(45)
+        // console.log(result5arr2)
+
+        // lastindexof methods -> last index of given value.
+        let result6arr2 = arr2.lastIndexOf(45)
+        // console.log(result6arr2)
+
+        // find methods -> .
+        let result7arr2 = arr2.find((el) => {
+
+        })
+        // console.log(result7arr2)
+
+
+        let arr3 = [12, 34, 65, 76, 68, 34, 53]
+        let [el1, el2, el3] = arr3 //it will create variable and assign value to it according to index.
+        // console.log(el1, el2, el3) //print -> 12 34 65
+
+        let [ele1, ele2, ele3, ...ele4] = arr3
+        // console.log(ele1, ele2, ele3, ...ele4) //print -> 12 34 65 76 68 34 53
+        // console.log(ele4) // ele4 return an object -> (4) [76, 68, 34, 53]
+        // console.log(typeof (ele4)) // ele4 return an object 
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Set Time</h1>
+    <input type="datetime-local" id="set-time">
+    <button>Set</button>
+    <h2>Get Time</h2>
+    <input type="date" id="get-time">
+    <button onclick="getTime()">Get</button>
+
+
+    <script>
+
+
+        function getTime() {
+
+        }
+        let date = new Date()
+        console.log(date)
+        console.log(date.toUTCString()) // standard utc time
+        console.log(date.getDay()) // b/w 0 to 6
+        console.log(date.getMonth()) // b/w 0 to 11
+        console.log(date.getFullYear()) // 2026
+        console.log(date.toDateString()) // 2026
+        console.log(date.toTimeString()) // 2026
+        console.log(date.toLocaleTimeString()) // 2026
+        console.log(date.getYear()) // depricated -> current year(2026) - 1900 = 126.
+
+
+        console.log(Date.now()) //unix epoch
+        let hour = date.getHours()
+        console.log(hour)
+
+        //future date
+        let futdate = new Date("2026-11-25T00:00").getTime()
+        let currdate = new Date().getTime()
+        console.log("Future date : ", futdate)
+        console.log("Current time : ", currdate)
+        let diff = futdate - currdate;
+        console.log("Diff of Fut - Curr : ", diff)
+    </script>
+</body>
+
+</html>

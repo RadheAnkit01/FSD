@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <a id="instalink" target="_blank" href="https://google.com"> Google will open in <span id="timing">5</span>
+        second on clicking
+    </a>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="cancel()">Cancel Timer</button>
+
+
+
+    <script>
+        let seconds = 5
+        let timerID
+        let timeoutID
+        startTimer()
+        cancelTimer()
+
+        function startTimer() {
+            timerID = setInterval(
+                function () {
+                    document.getElementById("timing").innerText = --seconds
+                }, 1000
+            )
+        }
+
+        function cancelTimer() {
+            timeoutID = setTimeout(function () {
+                document.querySelector("a").click()
+            }, 5000
+            )
+        }
+        function cancel() {
+            clearInterval(timerID)
+            clearTimeout(timeoutID)
+        }
+    </script>
+</body>
+
+</html>

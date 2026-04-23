@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="triggered">Trigger Event Listener</button><br><br>
+    <button id="remove">Remove Trigger Event Listener </button><br><br>
+    <a href="https://www.google.com" onclick="func2(event)">Go to Google(prevent default)</a><br><br>
+
+    <!-- Event Delegation.., here <li> tag do works on behalves of <ol> tag and this is known as Delegation -->
+    <ol onclick="func3(event)">
+        <li id="list1">List 1</li>
+        <li id="list2">List 2</li>
+        <li id="list3">List 3</li>
+        <li id="list4">List 4</li>
+        <li id="list5">List 5</li>
+    </ol>
+    <script>
+        function f1() {
+            alert("Event Triggered")
+        }
+
+        document.getElementById("triggered").addEventListener("click", f1)
+        document.getElementById("remove").addEventListener("click", function () {
+            document.getElementById("triggered").removeEventListener("click", f1)
+            alert("event removed")
+        })
+
+        function func2(e) {
+            e.preventDefault()
+        }
+        function func3(e) {
+            alert("Clicked on Ordered list")
+            console.log(e.target.tagName + " tag")
+        }
+    </script>
+</body>
+
+</html>

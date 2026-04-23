@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        function cachingFunc(sumFunc) {
+
+            let store = new Map()
+
+            return function (parame) {
+                let key = JSON.stringify(parame) //to store list in stack instead of heap so it will return reference.
+                if (store.has(key)) {
+                    return {
+                        cached: store.get(key)
+                    }
+                }
+                let result = sumFunc(parame)
+                store.set(key, result)
+                return {
+                    calculated: result
+                }
+            }
+        }
+        let sum = (x) => x.reduce((ac, cv) => ac + cv, 0)
+
+        let memo = cachingFunc(sum)
+
+        console.log(memo([1, 2, 3, 4]))
+        console.log(memo([1, 2, 3, 4]))
+    </script>
+</body>
+
+</html>

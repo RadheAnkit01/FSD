@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Practice</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* grid-template-rows: 1fr 1fr 1fr; */
+            row-gap: 10px;
+            column-gap: 5px;
+
+        }
+
+        .grid {
+            background-color: blue;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            border-radius: 8px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid">Items - 1</div>
+        <div class="grid">Items - 2</div>
+        <div class="grid">Items - 3</div>
+        <div class="grid">Items - 4</div>
+        <div class="grid">Items - 5</div>
+        <div class="grid">Items - 6</div>
+        <div class="grid">Items - 7</div>
+        <div class="grid">Items - 8</div>
+        <div class="grid">Items - 9</div>
+        <div class="grid">Items - 10</div>
+    </div>
+</body>
+
+</html>

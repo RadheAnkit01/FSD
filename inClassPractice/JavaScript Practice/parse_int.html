@@ -1,0 +1,49 @@
+<!-- Parse Int,
+NaN,
+document.write
+Number to Currency 
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var add = parseInt("131nso") + parseInt("09u2")
+        var add2 = parseInt("svl343") + parseInt("9sfvui")
+        console.log(add)       
+        console.log(add2)       
+        console.log(isNaN(add))
+        console.log(isNaN(add2))
+        console.log(isNaN(true))
+        console.log(isNaN(false))
+        // let age = prompt("Enter Your Age\n")
+        let age = 18;
+
+        if(isNaN(age)){
+            document.write("enter correct age after refresh!\n")
+        }else {
+            document.write("Your age is "+age+"\n")
+        }
+
+        document.write(Number.isNaN("24"))
+        document.write(Number.isNaN(NaN))
+        document.write(Number.isNaN("133f"))
+        document.write(Number.isNaN("vwrv"))
+
+        let price = 45000;
+        console.log(price.toLocaleString("en-IN", {style: "currency", currency:"INR"}))
+        document.writeln(price.toLocaleString("de-DE", {style: "currency", currency:"EUR"}))
+
+        let name = "radhe"
+        
+        
+    </script>
+
+    
+</body>
+</html>

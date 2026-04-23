@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" name="" id="otp" "> -->
+    <!-- <button onclick="checkOTP()">Submit</button> -->
+    <label for="">OTP</label>
+    <textarea name="" id="otp" onkeyup="checkOTP()"></textarea>
+    <h4 id="op"></h4>
+
+    <script>
+        
+
+        function checkOTP(){
+            let maxChar = 20;
+            userOTP = document.getElementById("otp").value
+            console.log(maxChar-userOTP.length)
+            document.getElementById("op").innerText="Remaining Char " + Number(maxChar-userOTP.length)
+        }
+    </script>
+</body>
+</html>

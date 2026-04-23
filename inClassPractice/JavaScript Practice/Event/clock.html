@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock ⏰ - Radhe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: white;
+            /* background-color: black; */
+        }
+
+        body {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+        .mainbox {
+            background-color: black;
+            min-width: 80vw;
+            min-height: 80vh;
+            border: 2px solid rgb(67, 66, 66);
+            border-radius: 50px;
+            display: grid;
+            grid-template-rows: 1fr 3fr 1fr;
+            padding: 1rem 5rem;
+
+
+        }
+
+        .middlebox {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        }
+
+        .hours,
+        .minutes,
+        .seconds {
+            font-size: 20vw;
+            border: 2px solid white;
+            margin: 20px;
+            border-radius: 20px;
+
+        }
+
+        .time {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Times, serif
+        }
+
+        .datebox {
+            font-size: 3rem;
+            padding: 0rem 3rem;
+            /* border: 1px solid white; */
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbox">
+        <!-- //upperbox for date-->
+        <div class="datebox">Date -
+            <span class="date day" id="day">00</span>
+            <span class="date month" id="month">00</span>
+            <span class="date year" id="year">0000</span>
+        </div>
+
+        <!-- //middlebox -->
+        <div class="middlebox">
+            <!-- //for hours -->
+            <div class="time hours">
+                <div style="height: 80%;" id="hours"></div>
+                <div style="height: 20%; font-size: 2rem;">Hours</div>
+            </div>
+            <!-- //for mins -->
+            <div class="time minutes">
+                <div style="height: 80%;" id="minutes"></div>
+                <div style="height: 20%; font-size: 2rem;">Minutes</div>
+            </div>
+            <!-- //for seconds -->
+            <div class="time seconds">
+                <div style="height: 80%;" id="seconds"></div>
+                <div style="height: 20%; font-size: 2rem;">Seconds</div>
+            </div>
+
+        </div>
+
+
+        <!-- //bottombox -->
+        <div>
+
+        </div>
+    </div>
+
+    <script>
+        let date = new Date();
+
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+        let seconds = date.getSeconds()
+
+        let currentDate = date.getDate()
+        let currentMonth = date.getMonth()
+        let currentYear = date.getMonth()
+
+
+
+        fetchTime()
+        function fetchTime() {
+            fetchTimeID = setInterval(
+                function () {
+                    date = new Date()
+                    hours = date.getHours()
+                    document.getElementById("hours").innerText = hours;
+                    // console.log(hours)
+                    minutes = date.getMinutes()
+                    document.getElementById("minutes").innerText = minutes;
+                    // console.log(minutes)
+                    seconds = date.getSeconds()
+                    document.getElementById("seconds").innerText = seconds;
+                    // console.log(seconds)
+                    currentDate = date.getDate()
+                    document.getElementById("day").innerText = currentDate;
+                    currentMonth = date.getMonth()
+
+                    document.getElementById("month").innerText = convertMonthToString(currentMonth);
+                    currentYear = date.getFullYear()
+                    document.getElementById("year").innerText = currentYear;
+
+                }, 1000
+            )
+        }
+
+        function convertMonthToString(monthNumber) {
+            if (monthNumber == 0) {
+                return "January"
+            } else if (monthNumber == 1) {
+                return "February"
+            } else if (monthNumber == 2) {
+                return "March"
+            } else if (monthNumber == 3) {
+                return "April"
+            } else if (monthNumber == 4) {
+                return "May"
+            } else if (monthNumber == 5) {
+                return "June"
+            } else if (monthNumber == 6) {
+                return "July"
+            } else if (monthNumber == 7) {
+                return "August"
+            } else if (monthNumber == 8) {
+                return "September"
+            } else if (monthNumber == 9) {
+                return "October"
+            } else if (monthNumber == 10) {
+                return "November"
+            } else if (monthNumber == 11) {
+                return "December"
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

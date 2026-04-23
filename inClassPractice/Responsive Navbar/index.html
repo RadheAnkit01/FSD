@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Name Formatter Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 400px;
+            background: #fff;
+            padding: 25px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+
+        .output p {
+            margin: 8px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Name Formatter</h2>
+        <input type="text" id="fullname" placeholder="Enter full name">
+        <button onclick="formatName()">Format Name</button>
+
+        <div class="output">
+            <p id="upper"></p>
+            <p id="lower"></p>
+            <p id="count"></p>
+        </div>
+    </div>
+
+    <script>
+        function formatName() {
+            const name = document.getElementById("fullname").value.trim();
+
+            if (name === "") {
+                alert("Enter a name first");
+                return;
+            }
+
+            document.getElementById("upper").innerText =
+                "Uppercase: " + name.toUpperCase();
+
+            document.getElementById("lower").innerText =
+                "Lowercase: " + name.toLowerCase();
+
+            document.getElementById("count").innerText =
+                "Character Count: " + name.replace(/\s+/g, "").length;
+        }
+    </script>
+
+</body>
+
+</html>

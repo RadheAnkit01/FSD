@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Handling</title>
+</head>
+<body>
+    <p></p>
+
+    <script>
+        try{
+            let a =parseInt(prompt("Enter 1st number "))
+            let b =parseInt(prompt("Enter 2nd number "))
+            if(b===0){
+                throw "0 is not allowed in denominator."
+            }
+            if(b>a){
+                throw "denominator not should be larger"
+            }
+            let c =a/b
+            alert(c);
+        }catch(error){
+            console.error(error);
+        }finally{
+            document.querySelector("p").innerText = "Calculation Done"
+        }
+
+    </script>
+</body>
+</html>

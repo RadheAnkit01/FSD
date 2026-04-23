@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+    <style>
+        .onmouse {
+            background-color: aqua;
+            width: 30px;
+            height: 25px;
+
+        }
+
+        .imgbox {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            width: 90vw;
+            /* padding: 10px; */
+            gap: 20px;
+        }
+
+        .parabox {
+            position: relative;
+            border: 1px solid black;
+            width: 50vw;
+            height: 40vh;
+
+        }
+
+        .para1 {
+            position: fixed;
+            border: 2px solid red;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="imgbox">
+        <div>
+            <img src="/Public/img/amazon orange theme banner 1.jpg" width="200px" alt=""
+                onmouseover="changeOverImage(this,event)">
+            <img src="/Public/img/amazon orange theme banner 2.jpg" width="200px" alt=""
+                onmouseover="changeOverImage(this,event)">
+            <img src="/Public/img/amazon orange theme banner 3.jpg" width="200px" alt=""
+                onmouseover="changeOverImage(this,event)">
+            <img src="/Public/img/amazon orange theme banner 4.jpg" width="200px" alt=""
+                onmouseover="changeOverImage(this,event)">
+            <img src="/Public/img/amazon orange theme banner 5.jpg" width="200px" alt=""
+                onmouseover="changeOverImage(this,event)">
+        </div>
+        <div>
+            <img src="" alt="" id="largeImage" width="700px">
+        </div>
+    </div>
+
+    <!-- <div class="onmouse" onmouseover="runMouseOver(this, event)" onmouseleave="runMouseLeave(this)"></div> -->
+
+    <div class="parabox" onmousemove="runOnMouseMove(event)" onmousedown="runOnMouseDown(this)"
+        onmouseup="runOnMouseUp(this)">
+        <p class="para1 para" id="para1">Para 1</p>
+    </div>
+    <script>
+        function runMouseOver(elem) {
+            elem.style.backgroundColor = "green"
+        }
+        function runMouseOver(elem) {
+            elem.style.backgroundColor = "aqua"
+        }
+        function changeOverImage(image) {
+            let img = document.getElementById("largeImage")
+            img.src = image.src
+        }
+        function runOnMouseMove(event) {
+            let para = document.getElementById("para1")
+            para.style.top = event.clientY + "px"
+            para.style.left = event.clientX + "px"
+            console.log(event)
+        }
+        function runOnMouseDown(elem) {
+            elem.style.backgroundColor = "red"
+        }
+        function runOnMouseUp(elem) {
+            elem.style.backgroundColor = "white"
+        }
+    </script>
+</body>
+
+</html>

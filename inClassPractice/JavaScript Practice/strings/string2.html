@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ==============================
+        // JAVASCRIPT STRING FUNCTIONS
+        // QUICK LIST / INDEX
+        // ==============================
+        //
+        // 1. length
+        // 2. toUpperCase()
+        // 3. toLowerCase()
+        // 4. charAt()
+        // 5. at()
+        // 6. charCodeAt()
+        // 7. concat()
+        // 8. includes()
+        // 9. startsWith()
+        // 10. endsWith()
+        // 11. indexOf()
+        // 12. lastIndexOf()
+        // 13. slice()
+        // 14. substring()
+        // 15. substr()
+        // 16. replace()
+        // 17. replaceAll()
+        // 18. split()
+        // 19. trim()
+        // 20. trimStart()
+        // 21. trimEnd()
+        // 22. padStart()
+        // 23. padEnd()
+        // 24. repeat()
+        // 25. match()
+        // 26. matchAll()
+        // 27. search()
+        // 28. localeCompare()
+        // 29. valueOf()
+        // 30. toString()
+        // 31. normalize()
+        // 32. codePointAt()
+        // 33. String.fromCharCode()
+        // 34. String.fromCodePoint()
+        // 35. String.raw()
+        // 36. String character access using index []
+        //
+        // ==============================
+        // JAVASCRIPT STRING FUNCTIONS
+        // ==============================
+
+        // A string is text data in JavaScript.
+        // Example:
+
+        let str = "Hello World";
+
+        // ------------------------------------
+        // 1. length
+        // ------------------------------------
+        // Gives total number of characters in string
+        // Syntax: str.length
+
+        console.log(str.length); // 11
+
+
+        // ------------------------------------
+        // 2. toUpperCase()
+        // ------------------------------------
+        // Converts all characters to uppercase
+        // Syntax: str.toUpperCase()
+
+        console.log(str.toUpperCase()); // "HELLO WORLD"
+
+
+        // ------------------------------------
+        // 3. toLowerCase()
+        // ------------------------------------
+        // Converts all characters to lowercase
+        // Syntax: str.toLowerCase()
+
+        console.log(str.toLowerCase()); // "hello world"
+
+
+        // ------------------------------------
+        // 4. charAt(index)
+        // ------------------------------------
+        // Returns character at a specific index
+        // Syntax: str.charAt(index)
+
+        console.log(str.charAt(0)); // "H"
+
+
+        // ------------------------------------
+        // 5. at(index)
+        // ------------------------------------
+        // Returns character at index
+        // Also supports negative index
+        // Syntax: str.at(index)
+
+        console.log(str.at(1)); // "e"
+        console.log(str.at(-1)); // "d"
+
+
+        // ------------------------------------
+        // 6. charCodeAt(index)
+        // ------------------------------------
+        // Returns Unicode value of character at index
+        // Syntax: str.charCodeAt(index)
+
+        console.log(str.charCodeAt(0)); // 72
+
+
+        // ------------------------------------
+        // 7. concat()
+        // ------------------------------------
+        // Joins two or more strings
+        // Syntax: str.concat("text")
+
+        console.log("Hello".concat(" ", "World")); // "Hello World"
+
+
+        // ------------------------------------
+        // 8. includes()
+        // ------------------------------------
+        // Checks if a string contains specific text
+        // Returns true or false
+        // Syntax: str.includes("text")
+
+        console.log(str.includes("World")); // true
+
+
+        // ------------------------------------
+        // 9. startsWith()
+        // ------------------------------------
+        // Checks if string starts with given text
+        // Syntax: str.startsWith("text")
+
+        console.log(str.startsWith("Hello")); // true
+
+
+        // ------------------------------------
+        // 10. endsWith()
+        // ------------------------------------
+        // Checks if string ends with given text
+        // Syntax: str.endsWith("text")
+
+        console.log(str.endsWith("World")); // true
+
+
+        // ------------------------------------
+        // 11. indexOf()
+        // ------------------------------------
+        // Returns first index of matching text
+        // If not found, returns -1
+        // Syntax: str.indexOf("text")
+
+        console.log(str.indexOf("o")); // 4
+
+
+        // ------------------------------------
+        // 12. lastIndexOf()
+        // ------------------------------------
+        // Returns last index of matching text
+        // Syntax: str.lastIndexOf("text")
+
+        console.log(str.lastIndexOf("o")); // 7
+
+
+        // ------------------------------------
+        // 13. slice(start, end)
+        // ------------------------------------
+        // Extracts part of string
+        // end is not included
+        // Supports negative index
+        // Syntax: str.slice(start, end)
+
+        console.log(str.slice(0, 5)); // "Hello"
+        console.log(str.slice(-5)); // "World"
+
+
+        // ------------------------------------
+        // 14. substring(start, end)
+        // ------------------------------------
+        // Extracts part of string
+        // Negative values are treated as 0
+        // Syntax: str.substring(start, end)
+
+        console.log(str.substring(0, 5)); // "Hello"
+
+
+        // ------------------------------------
+        // 15. substr(start, length)
+        // ------------------------------------
+        // Extracts part of string using start and length
+        // Old method, not recommended in modern JS
+        // Syntax: str.substr(start, length)
+
+        console.log(str.substr(0, 5)); // "Hello"
+
+
+        // ------------------------------------
+        // 16. replace()
+        // ------------------------------------
+        // Replaces first matched value
+        // Syntax: str.replace("old", "new")
+
+        console.log(str.replace("World", "JavaScript")); // "Hello JavaScript"
+
+
+        // ------------------------------------
+        // 17. replaceAll()
+        // ------------------------------------
+        // Replaces all matched values
+        // Syntax: str.replaceAll("old", "new")
+
+        let text = "cat bat cat";
+        console.log(text.replaceAll("cat", "rat")); // "rat bat rat"
+
+
+        // ------------------------------------
+        // 18. split()
+        // ------------------------------------
+        // Converts string into array
+        // Syntax: str.split(separator)
+
+        console.log(str.split(" ")); // ["Hello", "World"]
+        console.log(str.split("")); // ["H","e","l","l","o"," ","W","o","r","l","d"]
+
+
+        // ------------------------------------
+        // 19. trim()
+        // ------------------------------------
+        // Removes spaces from both sides
+        // Syntax: str.trim()
+
+        let name1 = " Ankit ";
+        console.log(name1.trim()); // "Ankit"
+
+
+        // ------------------------------------
+        // 20. trimStart()
+        // ------------------------------------
+        // Removes spaces from beginning
+        // Syntax: str.trimStart()
+
+        console.log(name1.trimStart()); // "Ankit "
+
+
+        // ------------------------------------
+        // 21. trimEnd()
+        // ------------------------------------
+        // Removes spaces from end
+        // Syntax: str.trimEnd()
+
+        console.log(name1.trimEnd()); // " Ankit"
+
+
+        // ------------------------------------
+        // 22. padStart()
+        // ------------------------------------
+        // Adds characters at beginning until target length reached
+        // Syntax: str.padStart(totalLength, "value")
+
+        let num1 = "5";
+        console.log(num1.padStart(3, "0")); // "005"
+
+
+        // ------------------------------------
+        // 23. padEnd()
+        // ------------------------------------
+        // Adds characters at end until target length reached
+        // Syntax: str.padEnd(totalLength, "value")
+
+        console.log(num1.padEnd(3, "0")); // "500"
+
+
+        // ------------------------------------
+        // 24. repeat()
+        // ------------------------------------
+        // Repeats string given number of times
+        // Syntax: str.repeat(number)
+
+        console.log("Hi ".repeat(3)); // "Hi Hi Hi "
+
+
+        // ------------------------------------
+        // 25. match()
+        // ------------------------------------
+        // Searches using regular expression
+        // Returns matched result
+        // Syntax: str.match(regex)
+
+        let data = "I love JavaScript";
+        console.log(data.match(/love/)); // ["love"]
+
+
+        // ------------------------------------
+        // 26. matchAll()
+        // ------------------------------------
+        // Returns all matches using regex
+        // Syntax: str.matchAll(regex)
+
+        let sentence = "test1 test2 test3";
+        console.log([...sentence.matchAll(/test\\d/g)]);
+
+
+        // ------------------------------------
+        // 27. search()
+        // ------------------------------------
+        // Searches for a match and returns index
+        // Syntax: str.search("text") or str.search(regex)
+
+        console.log(data.search("JavaScript")); // 7
+
+
+        // ------------------------------------
+        // 28. localeCompare()
+        // ------------------------------------
+        // Compares two strings
+        // Returns:
+        // 0 -> equal
+        // -1 -> first comes before second
+        // 1 -> first comes after second
+        // Syntax: str.localeCompare("otherString")
+
+        console.log("apple".localeCompare("banana")); // negative value
+
+
+        // ------------------------------------
+        // 29. valueOf()
+        // ------------------------------------
+        // Returns primitive value of string
+        // Mostly same as original string
+        // Syntax: str.valueOf()
+
+        console.log(str.valueOf()); // "Hello World"
+
+
+        // ------------------------------------
+        // 30. toString()
+        // ------------------------------------
+        // Converts value to string
+        // Syntax: str.toString()
+
+        console.log(str.toString()); // "Hello World"
+
+
+        // ------------------------------------
+        // 31. normalize()
+        // ------------------------------------
+        // Normalizes Unicode characters
+        // Used in special text comparison
+        // Syntax: str.normalize()
+
+        console.log("é".normalize()); // normalized form
+
+
+        // ------------------------------------
+        // 32. codePointAt(index)
+        // ------------------------------------
+        // Returns Unicode code point at index
+        // Syntax: str.codePointAt(index)
+
+        console.log(str.codePointAt(0)); // 72
+
+
+        // ------------------------------------
+        // 33. String.fromCharCode()
+        // ------------------------------------
+        // Static method
+        // Converts Unicode values into string
+        // Syntax: String.fromCharCode(value)
+
+        console.log(String.fromCharCode(72, 101, 108, 108, 111)); // "Hello"
+
+
+        // ------------------------------------
+        // 34. String.fromCodePoint()
+        // ------------------------------------
+        // Static method
+        // Creates string from Unicode code point
+        // Syntax: String.fromCodePoint(value)
+
+        console.log(String.fromCodePoint(72)); // "H"
+
+
+        // ------------------------------------
+        // 35. String.raw()
+        // ------------------------------------
+        // Static method
+        // Returns raw string from template literals
+        // Syntax: String.raw`text`
+
+        console.log(String.raw`Hello\\nWorld`); // "Hello\\nWorld"
+
+
+        // ------------------------------------
+        // 36. Accessing characters using index
+        // ------------------------------------
+        // You can access characters like array
+        // Syntax: str[index]
+
+        console.log(str[0]); // "H"
+
+
+        // ==============================
+        // IMPORTANT NOTE
+        // ==============================
+        //
+        // String methods do NOT change the original string.
+        // Because strings are immutable in JavaScript.
+
+        let msg = "hello";
+        let newMsg = msg.toUpperCase();
+
+        console.log(msg); // "hello"
+        console.log(newMsg); // "HELLO"
+    </script>
+</body>
+
+</html>

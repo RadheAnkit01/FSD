@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol{
+            
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
+        }
+        ol li {
+            border: 1px solid black;
+            margin: 10px;
+        }
+        ul{
+            border: 1px solid black;
+            margin: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <ol>
+
+    </ol>
+    <script>
+        let list = [
+            {
+                categories: "Electronics",
+                products: ["prod1", "prod2","prod3","prod4","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+            {
+                categories: "Fashion",
+                products: ["prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+            {
+                categories: "Fashion",
+                products: ["prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+            {
+                categories: "Fashion",
+                products: ["prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+            {
+                categories: "Fashion",
+                products: ["prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+            {
+                categories: "Fashion",
+                products: ["prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+            {
+                categories: "Fashion",
+                products: ["prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14","prod11", "prod12","prod13","prod14"]
+            },
+        ];
+        
+        let ol = document.querySelector("ol")
+        for(let i=0; i<list.length;i++){
+            let oli = document.createElement("li")
+            oli.innerText =list[i]["categories"]
+            ol.appendChild(oli)
+
+            let ul = document.createElement("ul")
+            for(let j =0; j<list[i].products.length;j++){
+                let uli = document.createElement("li")
+                uli.innerText = list[i].products[j]
+                ul.appendChild(uli)
+                ol.appendChild(ul)
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="attackButton" style="width: 200px; height: 50px;">Attack Player</button>
+
+    <script>
+
+        let obj1 = {
+            name: " Raadhe ",
+            lastname: " Ankit "
+        }
+        function fullname(greeting, thanking) {
+            return greeting + " " + this.name + this.lastname + thanking;
+        }
+
+        console.log(fullname.call(obj1, "Hello", "Thankyou (call)"))
+        console.log(fullname.apply(obj1, ["Hello", "Thankyou (apply)"]))
+        let ref = fullname.bind(obj1, "hello", "thankyou (bind)") //it doesn't return value it return reference.
+        ref("hello", "thankyou bind ref")
+
+
+        let Player = {
+            name: "Player213",
+            health: 100,
+            power: 1000,
+        }
+        function AttackPlayer() {
+            this.health -= 5
+            if (this.health > 0) {
+                console.log("!!!  Someone attacked  !!!\n")
+                console.log(this.name + " health is " + this.health)
+            } else if (this.health == 0) {
+                console.log("!!!  Someone attacked  !!!\n")
+                console.log(" --- " + this.name + " Eliminated ----")
+            } else {
+                console.log(" --- " + this.name + " Already Eliminated ----")
+
+            }
+        }
+
+        // document.getElementById("attackButton").addEventListener("click", AttackPlayer.call(Player))
+
+        let attackRef = AttackPlayer.bind(Player)
+        document.getElementById("attackButton").addEventListener("click", attackRef)
+
+        function f1() {
+            var a = 1000
+            return a;
+        }
+        let num = f1()
+        console.log("Number : ", num)
+
+    </script>
+</body>
+
+</html>

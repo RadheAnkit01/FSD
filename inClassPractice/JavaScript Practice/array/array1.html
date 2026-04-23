@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <!-- 
+
+Queue -
+    - Shift -- it will remove element from front of the array, it will also return the element which will removed.
+    - Unshift -- it will add new elements from the start[from 0th index] of the array, it will return the length of array.
+    - Push -- it will add the new elements in the array from the last, and return the length of the array.
+    - Pop -- it will remove last element from the array, and return the element which will delete.
+    - Front -- 
+    - Back -- 
+    - Reverse -- it reverse the array and return the reversed array.
+    - Join -- it will join the all element from the array and return as a string, and can also separated by value passing through paramenter.
+    - toString -- i will return all the value/element inside array as a string [except object data types] with commas saperated value.
+    - splice -- it can do all operations like shift, unshift, push, pop.
+    - concate -- it will join two array or other datatypes and return a combined array, arr1.concate(arr2) => [arr1 elements, arr2 elements]
+    - delete -- it will delete the element of provided index of array/object. like => delete arr1[3] 
+                - for array it will return => [elem1,e2,e3,empty, e4, so on..]  
+                - for object it will take key as argument and return boolean value true and false (deleted or not).
+
+ -->
+    <script>
+        let colors = ["red", "greeb", "blue", "pink", "purple", "voilet", "indigo"]
+        let result = colors.join(" ")
+        // console.log(result)
+
+        let history = ["pink", "purple", "voilet", "Page 1", "Page 2", "Page 3", "Page 4", "Page 5", "Page 6", "Page 7",]
+
+        for (let i = 0; i < 3; i++) {
+            // console.log(history[i])
+        }
+
+        let lastHistory = ["ankit", "String"]
+        function lastThreeHistory() {
+            lastHistory = []
+            for (let i = 0; i < 3; i++) {
+                lastHistory.push(history[i])
+            }
+            console.log(lastHistory)
+            console.log(history)
+        }
+        // lastThreeHistory()
+
+        let object1 = {
+            name: "Ankit",
+            class: "B.tech"
+
+        }
+        // console.log(delete object1["name"])
+        // console.log(object1)
+
+        let arr4 = [400, 350, 300,]
+
+        let result41 = arr4.sort((a, b) => { return a - b })
+        // console.log("ascending order : " + result41)
+        //ascending order, timsort algorithm
+        //[350,400,300]
+        //[350,300,400]
+        //[300,350,400]
+        let result42 = arr4.sort((a, b) => {
+            // console.log(a, b);
+            return b - a
+        })
+        // console.log("descending order : " + result42)
+        //descending order, timsort algorithm
+        //[350,400,300]
+        //[350,300,400]
+        //[300,350,400]
+
+        let object2 = [
+            {
+                name: "Name1",
+                price: 200
+            },
+            {
+                name: "Name2",
+                price: 350
+            },
+            {
+                name: "Name3",
+                price: 120
+            },
+            {
+                name: "Name4",
+                price: 410
+            },
+            {
+                name: "Name5",
+                price: 220
+            },
+        ]
+
+        //we want price in ascending order
+
+        let ascendingPrice = object2.sort((a, b) => { return a.price - b.price })
+        console.log(ascendingPrice)
+
+
+        //sort for strings
+        let resultOfObject1 = object2.sort((a, b) => {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+        })
+        //it will check the ascii value and then compare according to them.
+        console.log(resultOfObject1)
+
+
+        //underline algorithm
+        //sort for characters
+
+        let names = ['a', 'B', 'c', 'D', 'e', 'F']
+
+        let resultOfName2 = names.sort((a, b) => {
+            if (a < b) return -1;
+            if (a > b) return 1;
+        })
+        //it will check the ascii value and then compare according to them.
+        console.log(resultOfName2)
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events</title>
+</head>
+
+<body>
+    <h1>Keyboard Event</h1>
+    <input type="text" id="inputText1" onkeypress="getData(event)">
+    <h1 id="h1-1"></h1>
+
+    <h3>Prevented Default</h3>
+    <a href="https://www.amazon.com" onclick="preventDef(event)">Amazon</a>
+
+    <h1>Create Password (copy/paste isn't allowed)</h1>
+    <label for="">Password</label>
+    <input type="text" oncut="preventCopy(event)"><br><br>
+    <label for="">Confirm Password </label>
+    <!-- <input type="text" onpaste="preventPaste(event)"> -->
+    <input type="text" onpaste="return false">
+
+
+
+
+
+    <script>
+        let capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        function getData(event) {
+            var text = document.getElementById("inputText1").value
+            // console.log(event)
+            // console.log(event.key)
+            // console.log(text)
+            for (let i = 0; i < capitalLetters.length; i++) {
+                if (event.key == capitalLetters[i]) {
+                    document.getElementById("h1-1").innerText = "Is Capital Letter - Yes"
+                }
+            }
+        }
+        //
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey || e.metaKey && e.key === 's') {
+                e.preventDefault()
+                alert("saving Functionality isn't allowed here")
+            }
+        })
+
+        function preventDef(event) {
+            event.preventDefault()
+            alert("Redirecting isn't allowed here")
+        }
+        function preventCopy(event) {
+            event.preventDefault()
+            alert("Copy/Cut isn't allowed here")
+
+        }
+        function preventPaste(event) {
+            event.preventDefault()
+            alert("Paste isn't allowed here")
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

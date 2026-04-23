@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Meta Characters</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="">Input</label>
+        <input type="text" name="" id="" pattern="colo?r">
+        <button type="submit">Submit</button>
+
+        <!-- 
+
+        meta characters examples -
+        ? -- zero or ones occurrence of a characters ( col?r )
+        * -- it define zero or more occurence of a characters
+        + -- it defines ones or more occurrences of a characters.
+        . -- Matches any single characters in the specialed string.
+        \ -- 
+        | --
+
+        {} -- quantifiers 
+
+
+        -->
+    </form>
+
+    <script>
+        let str1 = `svoe w erol 
+        wever sdcsdv 
+        svjwneivnweinv ncoiwe wjcniwenc wjcenwe jc wjenc 
+        ever `
+        console.log(str1)
+        let str2 = ` some data ${20} `
+        console.log(str2)
+
+
+
+        let socialPost = `#IOI #RIFT #event ankit`
+        let regexPattern = /#\w+/img
+        let result = socialPost.match(regexPattern) //match will check is this pattern matching 
+        console.log(result)
+
+        let strData = "user342"
+        let regexPattern2 = /\d+/
+        let result2 = regexPattern2.test(strData) //test --> it will return boolean value after checking and matchingpattern,  
+        console.log(result2)
+
+
+
+        function validation(data, type) {
+            let validators = {
+                phone: /\+91\d{10}/,
+                password: /(?=.*[A-Z])(?=.*[0-9])\w{8}/
+            }
+            return validators.type.test(data)
+        }
+        console.log(validation("+911233445230", "phone"))
+    </script>
+</body>
+
+</html>

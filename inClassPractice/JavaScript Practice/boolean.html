@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>'===' --> only compare between value not data type </p>
+
+    <input type="text" readonly required disabled value="readonly text">
+    <script>
+        var b1 = 1;
+        var b2 = "1";
+        // document.write(b1===b2);
+        console.log(b1===b2)
+
+        let isStudent = false
+        console.log(isStudent)
+        let a1 = true + 11; //12
+        let a2 = true + "A";//trueA
+        let a3 = true + true + false; //2
+        console.log(a1,a2,a3)
+
+        let student = "false" //string
+        let student1 = "true" //string
+        let result = (student=="false")? student=false:student="not false";
+        let result2 = (student1=="false")? student=false:student="not false";
+        console.log(result)
+        console.log(result2)
+        
+
+    </script>
+</body>
+</html>

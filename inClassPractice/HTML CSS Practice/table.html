@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Practice</title>
+    <style>
+        :root {
+            --lcolor1: rgb(254, 172, 172);
+            --lcolor2: rgb(195, 173, 255);
+            --lcolor3: rgb(173, 154, 255);
+            --lcolor4: rgb(238, 249, 168);
+            --lcolor5: rgb(189, 246, 174);
+            --lcolor6: rgb(255, 255, 255);
+            --lcolor7: rgb(118, 118, 118);
+            --dcolor1: rgb(3, 0, 0);
+            --dcolor2: rgb(0, 13, 255);
+            --dcolor3: red;
+            --dcolor4: rgb(255, 0, 230);
+            --dcolor5: rgb(0, 102, 255);
+            --dcolor6: rgb(140, 0, 255);
+
+        }
+
+        table {
+            /* border: 1px solid black; */
+            table-layout: auto;
+
+        }
+
+        th,
+        td {
+            border: 1px solid grey;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: rgb(233, 233, 233);
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid black;
+            margin: 0px 5px;
+            padding: 0px 5px 10px 20px;
+            min-width: 200px;
+            /* max-width: 300px; */
+            min-height: 300px;
+            background-color: white;
+            align-items: center;
+            align-content: center;
+            font-size: 20px;
+        }
+
+        .card button {
+            color: red;
+            background-color: yellow;
+            width: 200px;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 20px;
+        }
+
+        nav {
+
+            min-height: 400px;
+            border: 1px solid black;
+            padding: 10px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        nav button {
+            padding: 10px 5px;
+            border-radius: 20px;
+            background-color: skyblue;
+
+        }
+
+        nav button:hover {
+            background-color: rgb(0, 183, 255);
+        }
+
+        /* Question 3 */
+        .plans {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .plan {
+            border: 3px solid black;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 200px;
+            min-height: 300px;
+            border-radius: 20px;
+            background-color: rgb(248, 206, 100);
+        }
+
+        .price-btn {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+        }
+
+        .plan button {
+            background-color: red;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 5px;
+            width: 150px;
+        }
+
+        /* Questions 4 CSS */
+
+        .box-4 {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            max-width: 300px;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid black;
+            background-color: rgb(215, 247, 236);
+        }
+
+        /* Q5 */
+        .box-5 {
+            background-color: bisque;
+            padding: 20px;
+        }
+
+        /* Q6 */
+        .admin-panel {
+            display: flex;
+            /* border: 1px solid black; */
+            /* gap: 30px; */
+        }
+
+        .side-panel {
+            color: white;
+            background-color: rgb(37, 37, 37);
+            padding: 10px;
+        }
+
+        .side-panel a {
+            color: white;
+            font-size: 15px;
+
+        }
+
+        .dashboard-panel {
+            padding: 0px 0px;
+            margin-right: auto;
+            border: 1px solid black;
+        }
+
+        .d-panel-top {
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+
+        .d-panel-middle {
+            padding: 10px;
+            min-height: 400px;
+        }
+
+        .d-panel-bottom {
+            background-color: rgb(49, 48, 48);
+            color: white;
+            padding: 5px;
+        }
+
+        .d-summary {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .d-summary div {
+            border: 0px solid black;
+            width: 150px;
+            background-color: grey;
+            margin: 10px;
+            padding: 10px;
+            font-size: small;
+            text-align: center;
+        }
+
+        .d-table th,
+        td {
+            width: 200px;
+        }
+
+        /* Q7 */
+        .box-7 {
+            background-color: rgb(189, 189, 249);
+            padding: 20px;
+        }
+
+        .b7-textarea {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>Student's Details And Their Fav Subjects</caption>
+        <tr>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Roll no.</th>
+            <th>Favourite Subjects 1</th>
+            <th>Favourite Subjects 2</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>5323</td>
+            <td colspan="2">Maths</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Golu</td>
+            <td>3657</td>
+            <td>Compiler Design</td>
+            <td rowspan="3">Computer Architecture</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Radhe</td>
+            <td>8083</td>
+            <td rowspan="2">Programming</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Happy</td>
+            <td>1753</td>
+
+        </tr>
+    </table>
+    <h3>Unordered Lists</h3>
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Guava</li>
+        <li>Pear</li>
+        <li>Banana</li>
+    </ul>
+
+    <h3>Ordered Lists</h3>
+    <ol>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Guava</li>
+        <li>Pear</li>
+        <li>Banana</li>
+    </ol>
+    <h3>Definition Lists</h3>
+    <dl>
+        <dt>Apple</dt>
+        <dd>Apple is an fruit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, a. Quis quidem earum
+            doloribus obcaecati autem quos, odio ea ipsa dicta nobis minus quas!</dd>
+
+        <dt>Orange</dt>
+        <dd>Orange is an fruit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, a. Quis quidem earum
+            doloribus obcaecati autem quos, odio ea ipsa dicta nobis minus quas!</dd>
+
+        <dt>Banana</dt>
+        <dd>Banana is an fruit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, a. Quis quidem earum
+            doloribus obcaecati autem quos, odio ea ipsa dicta nobis minus quas!</dd>
+    </dl>
+
+    <h1>Sample Paper Question 1</h1>
+    <div class="cards">
+        <div class="card">
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at qui quibusdam?Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit. Quae beatae ducimus ipsa. Lorem ipsum dolor sit amet, consectetur
+                adipisicing.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at qui quibusdam?Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit. Quae beatae ducimus ipsa. Lorem ipsum dolor sit amet, consectetur
+                adipisicing.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at qui quibusdam?Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit. Quae beatae ducimus ipsa. Lorem ipsum dolor sit amet, consectetur
+                adipisicing.</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+    <h1>Sample Paper Question 2</h1>
+
+    <nav>
+        <div class="logo">
+            <h1>Logo</h1>
+        </div>
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">Category</a>
+            <a href="#">Contact</a>
+            <a href="#">Resources</a>
+        </div>
+        <button>
+            Logout
+        </button>
+    </nav>
+
+    <h1>Sample Paper Question 3</h1>
+
+    <div class="plans">
+        <div class="plan">
+            <div>
+                <ul>
+                    <li>Features 1</li>
+                    <li>Features 2</li>
+                    <li>Features 3</li>
+                    <li>Features 4</li>
+                </ul>
+            </div>
+            <div class="price-btn">
+                <h3> Price : Rs. 499.00</h3>
+                <button>Sign Up</button>
+            </div>
+        </div>
+        <div class="plan">
+            <div>
+                <ul>
+                    <li>Features 1</li>
+                    <li>Features 2</li>
+                    <li>Features 3</li>
+                    <li>Features 4</li>
+                    <li>Features 5</li>
+                    <li>Features 6</li>
+                </ul>
+            </div>
+            <div class="price-btn">
+                <h3> Price : Rs. 799.00</h3>
+                <button>Sign Up</button>
+            </div>
+        </div>
+        <div class="plan">
+            <div>
+                <ul>
+                    <li>Features 1</li>
+                    <li>Features 2</li>
+                    <li>Features 3</li>
+                    <li>Features 4</li>
+                    <li>Features 5</li>
+                    <li>Features 6</li>
+                    <li>Features 7</li>
+                    <li>Features 8</li>
+                </ul>
+            </div>
+            <div class="price-btn">
+                <h3> Price : Rs. 999.00</h3>
+                <button>Sign Up</button>
+            </div>
+        </div>
+
+    </div>
+
+    <h1>Sample Paper Question 4</h1>
+
+    <div class="box-4">
+        <h1>Name Formatter</h1>
+        <input type="text" id="full-name" placeholder="Enter Full Name">
+        <button id="btn-display" onclick="formatter()">Display</button>
+
+        <div>
+            <p id="upper"></p>
+            <p id="lower"></p>
+            <p id="count"></p>
+        </div>
+    </div>
+
+
+    <script>
+        function formatter() {
+            var name = document.getElementById("full-name").value.trim();
+
+            document.getElementById("upper").innerText = "Uppercase : " + name.toUpperCase();
+            document.getElementById("lower").innerText = "Lowercase : " + name.toLowerCase();
+            document.getElementById("count").innerText = "Character Count : " + name.length;
+        }
+
+    </script>
+    <h1>Sample Paper Question 5</h1>
+    <div class="box-5">
+        <h1>Verify Password</h1>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button id="btn-display" onclick="verifypass()">Verify</button>
+
+        <div>
+            <p id="verifiedresult1"></p>
+            <p id="verifiedresult"></p>
+
+        </div>
+    </div>
+
+    <script>
+        function verifypass() {
+            var name = document.getElementById("password").value;
+            var result = document.getElementById("verifiedresult");
+
+            if (name.length < 6) {
+                result.innerText = "Weak Password";
+                result.style.color = "red";
+            } else if (name.length <= 9 && name.length >= 6) {
+                result.innerText = "Medium Password";
+                result.style.color = "orange";
+            } else if (name.length > 9) {
+                result.innerText = "Strong Password";
+                result.style.color = "green";
+
+            }
+        }
+
+    </script>
+    <h1>Sample Paper Question 6</h1>
+    <div class="admin-panel">
+        <div class="side-panel">
+            <h3>Admin</h3>
+            <p><a href="#">Dashboard</a></p>
+            <p><a href="#">Users</a></p>
+            <p><a href="#">Reports</a></p>
+            <p><a href="#">Settings</a></p>
+        </div>
+        <div class="dashboard-panel">
+            <div class="d-panel-top">
+                Welcome Admin
+            </div>
+            <div class="d-panel-middle">
+                <div class="d-summary">
+                    <div>
+                        <p>Users</p>
+                        <p>120</p>
+                    </div>
+                    <div>
+                        <p>Sales</p>
+                        <p>5000</p>
+                    </div>
+                    <div>
+                        <p>Orders</p>
+                        <p>45</p>
+                    </div>
+                    <div>
+                        <p>Revenue</p>
+                        <p>12k</p>
+                    </div>
+
+                </div>
+                <div class="d-table">
+                    <h3>Recent Users</h3>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Rahul</td>
+                            <td>rahul@gmail.com</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>Anita</td>
+                            <td>anita@gmail.com</td>
+                            <td>Pending</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="d-panel-bottom">
+                @2026 Admin Panel
+            </div>
+        </div>
+    </div>
+
+    <h1>Sample Paper Question 7</h1>
+
+    <div class="box-7">
+        <h3>Live character and word analyser</h3>
+        <textarea name="" id="b7-textarea" placeholder="Type your para here.."></textarea>
+        <br>
+        <button onclick="analyser()">Analysis</button>
+        <div>
+            <p id="b7-character"></p>
+            <p id="b7-word"></p>
+            <p id="b7-sentence"></p>
+        </div>
+    </div>
+    <script>
+        function analyser() {
+            var text = document.getElementById("b7-textarea").value;
+
+            var character = document.getElementById("b7-character");
+            var word = document.getElementById("b7-word");
+            var sentence = document.getElementById("b7-sentence");
+
+            character.innerText = "Characters: " + text.length;
+
+            const word = text.trim().split(/\s+/).filter(w => w !== "");
+            word.innerText = "words : " + (text.trim() === "" ? 0 : words.length);
+
+
+            // const words = text.trim().split(/\s+/).filter(w => w !== "");
+            // word.innerText =
+            //     "Words: " + (text.trim() === "" ? 0 : words.length);
+
+            // const sentences = text.split(".").filter(s => s.trim() !== "");
+            // sentence.innerText =
+            //     "Sentences: " + sentences.length;
+
+            const sentences = text.split(".").filter(s => s.trim() !== "");
+            sentence.innerText = "Sentences : " + sentences.length;
+        }
+    </script>
+
+
+
+
+
+
+    <br>
+    <br>
+</body>
+
+</html>

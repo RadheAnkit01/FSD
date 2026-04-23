@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Bank Balance</title>
+</head>
+
+<body>
+
+
+    <script>
+        function myAccount() {
+            let Bal = 100
+
+            return {
+                debit: function () {
+                    return --Bal
+                },
+                checkBalance: function () {
+                    return Bal
+                }
+            }
+        }
+
+        let operateAccount = myAccount()
+        debitOne = operateAccount.debit()
+        checkBal = operateAccount.checkBalance()
+
+        console.log(debitOne)
+        console.log(checkBal)
+        debitOne = operateAccount.debit()
+        debitOne = operateAccount.debit()
+        debitOne = operateAccount.debit()
+        checkBal = operateAccount.checkBalance()
+        console.log(debitOne
+
+        )
+        console.log(checkBal)
+
+
+
+        function Authentication() {
+            let myDetails = {
+                name: "radhe",
+                password: "1234"
+            }
+
+            function login(username, password) {
+                if (username && password) {
+                    return myDetails
+                }
+            }
+        }
+
+        function A() {
+            let a = 100
+
+            function B() {
+                function C() {
+                    console.log(a)
+                }
+
+            }
+            let b = B()
+            b()
+        }
+        A()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Day is <span id="output">default</span></h1>
+    <div id="main">
+        <img src="" alt="">
+    </div>
+    <script>
+
+        let day = 7
+        let elem = document.getElementById("output")
+        switch (day) {
+            case 1: elem.innerText = "monday"
+                break
+            case 2: elem.innerText = "tuesday"
+                break
+            case 3: elem.innerText = "wednesday"
+                break
+            case 4: elem.innerText = "thrusday"
+                break
+            case 5: elem.innerText = "friday"
+                break
+            case 6: elem.innerText = "saturday"
+                break
+            case 7: elem.innerText = "sunday"
+                break                                                   
+        }
+        let h1 = document.createElement("h1")
+        let img = document.createElement("img")
+        img.src = "https://picsum.photos/500"
+
+        h1.innerText = "Heading"
+        h1.innerText = "Heading"
+        img.alt = "Image"
+        
+        document.getElementById("main").appendChild(h1)
+        document.getElementById("main").appendChild(img)
+    </script>
+</body>
+
+</html>

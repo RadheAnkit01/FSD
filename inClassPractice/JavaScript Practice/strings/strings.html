@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 20px 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div><input type="text" id="input-string">
+        <button onclick="handleString()">Get String</button>
+    </div>
+    <div>
+        <label for="">Start Index</label>
+        <input type="text" id="start"><br>
+    </div>
+    <div>
+        <label for="">End Index</label>
+        <input type="text" id="end">
+    </div>
+
+    <div>
+        <h1 id="output"></h1>
+    </div>
+
+    <script>
+
+
+
+
+        function handleString() {
+            let inputString = document.getElementById("input-string").value
+
+            let start = Number(document.getElementById("start").value)
+            let end = Number(document.getElementById("end").value) || undefined
+
+            let output = document.getElementById("output")
+            output.innerText = inputString.substring(start, end)
+
+        }
+
+
+        let string = "Hello Ankit Ankit"
+
+        let startIndex = 0
+        let endIndex = 5
+        console.log(string.slice(startIndex, endIndex))
+        console.log(string.slice())
+        // when startIndex > endIndex => it will return empty string
+        // when index is -ve, then start from  backward 
+        //if end index not provided, methid will run upto the length
+
+
+        console.log(string.substring(-4,))
+        console.log(string.substring(-4,))
+        //substring --> when startindex > endIndex the valur get swapped 
+        // when -ve, it is considered 0
+        // if end index not provided, methids will run start upto the lenght
+
+        console.log(string.substr(-1))
+        console.log(string.substr(1)) //it return all characters after the start value
+        console.log(string.substr(1, 6)) // output -->  ello A
+        //if lenght not provided, methods will run start upto the length
+        // when index is -ve, then start from backward
+
+
+        let newString = string.concat("", 123)
+        console.log(newString)
+
+        console.log(string.indexOf("Ankit")) //--> it will check only one character from starting of string here A 
+        console.log(string.indexOf("A")) // both return same value, because it will check only "A".
+        console.log(string.indexOf("a")) // it is case sensitive and if there in no value match it will return -1.
+
+        console.log(string.lastIndexOf("Ankit"))
+        console.log(string.lastIndexOf("A"))
+        console.log(string.lastIndexOf("a"))
+
+
+        let arrayString = string.split("") //it will check the regex Pattern and return array of all matching regex characters 
+        console.log(arrayString)
+
+        console.log(String.prototype) //prototype store all methods relate to String or any datatype.
+
+        //creating function inside object.
+        let myGreetingObject = {
+            name: "Sachin (from myGreetingObject)",
+            greets: function () {
+                console.log("Hello " + this.name)
+            }
+        }
+        //calling user defined object function.
+        myGreetingObject.greets()
+
+
+
+        //declearing our methods into String.
+        String.prototype.sayHi = function () {
+            console.log("Hii " + this)
+            return `hello ${this}`
+        }
+        String.prototype.sayHi2 = function () {
+            console.log("Hii " + this)
+
+        }
+        //calling our methods.
+        let name1 = new String("ankit from name1").sayHi()
+        let name2 = new String("ankit from name2").sayHi2()
+        "radhe from our function sayHi()".sayHi()
+        "radhe from our function sayHi2()".sayHi2()
+        //types of user/our defined function. 
+        console.log(typeof name1) //return String because it is returning String types of data.
+        console.log(typeof name2) //return undefined because it doesn't return any value.
+
+
+        let newStr = `Radhe`
+        console.log(newStr[100])
+        console.log()
+
+
+    </script>
+</body>
+
+</html>

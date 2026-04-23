@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //declaration of function
+        function a() {
+            console.log("abc")
+        }
+        // calling function 
+        a()
+        a()
+        a()
+
+        console.log(sum) //calling before declaration a variable 
+
+
+        //storing function in a variable
+        var var1 = function () { return 1 + 2 };
+        console.log(var1)
+        console.log(var1())
+
+        function sum(a, b, c = false) {
+            return a + b + c;
+        }
+        console.log("Sum : ", sum(12, 45))
+
+        let user1 = {
+            name: "Ankit",
+        }
+        let user2 = {
+            name: "Radhe",
+        }
+        function greetings() {
+            console.log("Hello ", this.name)
+            return "Hello " + this.name
+        }
+        //
+        console.log(greetings.call(user1))
+        console.log(greetings.call(user2, "abc"))
+        console.log(greetings.apply(user1))
+        console.log(greetings.apply(user1, ["abc"]))
+        console.log(greetings.bind(user1)) // it return the body of function only
+        console.log(greetings.bind(user1)()) //it call the function
+
+        setTimeout(greetings.bind(user2), 2000);
+
+        //factory function 
+
+
+        //constructor function
+        function StudentDetail(firstname, lastname) {
+            this.firstname = firstname
+            this.lastname = lastname
+        }
+
+        StudentDetail.prototype.fullname = () => {
+            return this.fullname + " " + this.lastname
+        }
+        student1 = new StudentDetail("Radhe", "Ankit")
+        console.log(student1.fullname())
+
+    </script>
+</body>
+
+</html>

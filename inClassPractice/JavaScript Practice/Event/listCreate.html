@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="createNewList()">Add New Lists</button>
+    <ul id="ul-list">
+
+    </ul>
+
+
+    <script>
+        var count = 1;
+
+        let nodeList = document.querySelectorAll(".list")
+        let htmlCollection = document.getElementsByClassName("list")
+
+        console.log(nodeList)
+        console.log(Array.from(nodeList))
+        console.log(htmlCollection)
+        console.log(Array.from(htmlCollection))
+        console.log(...htmlCollection)
+
+
+        function createNewList() {
+
+            let list = document.getElementById("ul-list")
+            let li = document.createElement("li")
+
+            li.innerText = `List ${count++}`
+            li.setAttribute("class", "list")
+
+            list.appendChild(li)
+
+        }
+
+    </script>
+</body>
+
+</html>

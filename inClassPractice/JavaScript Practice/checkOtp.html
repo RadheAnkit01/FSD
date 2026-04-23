@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">OTP</label>
+    <input type="text" name="" id="otp" ">
+    <button onclick="checkOTP()">Submit</button>
+    <!-- <textarea name="" id="otp"></textarea> -->
+    <h4 id="op"></h4>
+    <script>
+        function checkOTP(){
+            let otp = 1234;
+            let userOTP = document.getElementById("otp").value
+            console.log(userOTP.length)
+            if(userOTP==otp){
+                document.getElementById("op").innerText = "OTP Valid"
+                document.getElementById("op").innerHTML = "OTP Valid".italics()
+            }else {
+                document.getElementById("op").innerText = "OTP Invalid"
+                document.getElementById("op").innerHTML = "OTP Invalid".toUpperCase()
+            }
+        }
+    </script>
+    <!-- <script>
+        let fname="Radhe"
+        let lname="Ankit"
+        document.getElementById("id").innerHTML="<h1 style='color:blue'> Hello</h1> "
+        document.getElementById("id").innerHTML=`<h1 style='color:blue'> ${fname + " "+ lname}</h1>`
+    </script> -->
+</body>
+</html>

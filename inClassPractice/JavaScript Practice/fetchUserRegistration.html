@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol></ol>
+    <article>
+
+    </article>
+    <label for="username">Username</label>
+    <input type="text" id="user-name" onchange="checkUserName()">
+    <span></span>
+    <script>
+        fetch("article.html").then(function(data){
+            console.log(data)
+            return data.text()
+        }).then(function(unpackedData){
+            console.log(unpackedData)
+        })
+
+        function checkUserName(){
+            fetch("usersData.json")
+            .then(function(data){
+                console.log(data.status)
+                if(data.status==404){
+                    throw "couldn't get the data"
+                }
+                return data.json()
+            })
+            .then(function(data2){
+                console.log(data2)
+                let flage = false
+                
+                let userName= document.getElementById("user-name")
+                let msg = document.querySelector("span")
+                for(let i=0; i<data2.length;i++){
+                    // data2[i].username
+                    if(data2[i].username == userName){
+                        document.write("username already taken")
+                        break
+                    }else {
+                        document.write("username available")
+                    }
+                }
+                document.querySelector("article").innerHTML = data2
+                // console.log(data2)
+                document.write(data2)
+            })
+        }
+    </script>
+</body>
+</html>

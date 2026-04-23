@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Practice</title>
+    <style>
+        .carousel {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            /* row-gap: 10px; */
+            column-gap: 1em;
+            /* margin: 1em; */
+            /* padding: 2em; */
+            scroll-behavior: smooth;
+            /* position: relative; */
+            anchor-name: --carousel;
+            margin: 0em 0em;
+
+            /* adding scroll snapping */
+            scroll-snap-type: x mandatory;
+
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel::scroll-button(left) {
+            content: "←";
+            border: none;
+            background-color: red;
+            border-radius: 50px;
+            height: 3em;
+            width: 3em;
+            margin-top: 0.3em;
+            font-size: 20px;
+            /* font-family: Consolas; */
+            font-weight: bold;
+            /* position: absolute; */
+            cursor: pointer;
+            /* when arrow comes it behave like button */
+
+            /* now it for arrow to position it */
+            position: fixed;
+            position-anchor: --carousel;
+            position-area: left center;
+            translate: 60%;
+        }
+
+        .carousel::scroll-button(right) {
+            content: "→";
+            border: none;
+            background-color: red;
+            border-radius: 50px;
+            height: 3em;
+            width: 3em;
+            margin-top: 0.3em;
+            font-size: 20px;
+            font-weight: bold;
+            /* position: absolute; */
+            cursor: pointer;
+            /* when arrow comes it behave like button */
+
+            /* now it for arrow to position it */
+            position: fixed;
+            position-anchor: --carousel;
+            position-area: right center;
+            translate: -60%;
+
+            /* now adding scroll marker (dot) and is parent container thats holds all markers */
+            scroll-marker-group: after;
+        }
+
+
+        .carousel::scroll-marker-group {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+
+        }
+
+        .carousel::scroll-button(left):disabled,
+        .carousel::scroll-button(right):disabled {
+            /* opacity: 0.7; */
+            background-color: rgb(248, 127, 127);
+        }
+
+        .card {
+            flex: 0 0 20em;
+            /* height: 8em; */
+            aspect-ratio: 5/3;
+            background-color: blue;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            align-content: center;
+            font-size: 2rem;
+            border-radius: 20px;
+            /* adding point to stop in scroll snapping */
+            scroll-snap-align: start;
+        }
+
+        /* scroll marker and button not supported on all browser so it may ignored by some browsers */
+        .card::scroll-marker {
+            content: ' ';
+            background-color: rgb(92, 92, 92);
+            height: .5em;
+            width: .5em;
+            border-radius: 50%;
+            /* border: 1px solid black; */
+
+        }
+
+        .card::scroll-marker:target-current {
+            background-color: blue;
+        }
+
+        .carousel-margin {
+            margin: 0.5em 1.5em;
+        }
+
+        @media screen and (max-width:550px) {
+            .card {
+                flex: 0 0 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel-margin">
+        <div class="carousel">
+            <div class="card">Card No. - 1</div>
+            <div class="card">Card No. - 2</div>
+            <div class="card">Card No. - 3</div>
+            <div class="card">Card No. - 4</div>
+            <div class="card">Card No. - 5</div>
+            <div class="card">Card No. - 6</div>
+            <div class="card">Card No. - 7</div>
+            <div class="card">Card No. - 8</div>
+            <div class="card">Card No. - 9</div>
+            <div class="card">Card No. - 10</div>
+        </div>
+    </div>
+</body>
+
+</html>

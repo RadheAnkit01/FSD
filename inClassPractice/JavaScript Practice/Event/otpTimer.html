@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: red;
+            border-color: white;
+            width: 400px;
+            height: 80px;
+            font-size: larger;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="otpbtn">Generate otp</button>
+
+
+    <script>
+        document.getElementById("otpbtn").addEventListener("click", function () {
+            document.getElementById("otpbtn").style.cursor = "not-allowed"
+            document.getElementById("otpbtn").style.backgroundColor = "grey"
+            buttonEnable()
+        })
+        function buttonEnable() {
+            setTimeout(
+                function () {
+                    document.getElementById("otpbtn").style.cursor = "pointer";
+                    document.getElementById("otpbtn").style.backgroundColor = "red";
+                }, 3000
+            )
+
+        }
+    </script>
+</body>
+
+</html>

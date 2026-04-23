@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="data" onchange="isChecked()">
+    <label for="" id="checklbl">Out of Box</label> <br>
+    <button id="btn" onclick="changedTxt()" style="margin-top: 40px;">Hide</button><br><br>
+    <img src="/OJT/Public/img/goa.webp" alt="" width="200px" style="display: inline-block;" >
+    <script>
+
+        function isChecked(){
+            let box = document.getElementById("data").checked
+            let lbl = document.getElementById("checklbl")
+            lbl.innerText= (box)? "In Stock":"Out Of Stock"
+            console.log("Checked and change")
+        }
+
+        function changedTxt(){
+            let btnTxt = document.querySelector("#btn")
+
+            btnTxt.innerText = (btnTxt.innerText=="Hide")? "Show": "Hide";
+            console.log("Changed Text Successfully!")
+            let img= document.querySelector("img")
+            img.style.display = (img.style.display == "inline-block")? "none":"inline-block"
+            console.log("Button works done!")
+        }
+    </script>
+</body>
+</html>

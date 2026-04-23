@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let studentDetails = {
+            name: "Ayan",
+            roll_no: 123,
+            isPresent: undefined,
+            address: {
+                city: "Delhi",
+                pin_code: 110031,
+            }
+        }
+
+        // let { name, isPresent, address } = studentDetails
+        let { name: studentName = "name", isPresent, address } = studentDetails
+        // console.log(name)
+        console.log(name)
+        console.log(studentName)
+        console.log(isPresent)
+        console.log(address.city)
+        console.log(address.pin_code)
+    </script>
+</body>
+
+</html>
