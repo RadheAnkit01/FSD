@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="file" id="inp">
+    <button onclick="sendData()">Upload</button>
+    <button onclick="cancleUpload()">Cancel Uploading</button>
+    <button onclick="getRequest()">Get Api Data</button>
+    <script>
+
+        function loadscript(src, callback) {
+            let script = document.createElement("script")
+            script.setAttribute("src", src)
+            document.head.append(script)
+
+            script.onload = function () {
+                callback()
+            }
+        }
+
+        // loadscript("script1.js", function () {
+        //     console.log(1)
+        //     loadscript("script2.js", function () {
+        //         console.log(2)
+        //         loadscript("script3.js", function () {
+        //             console.log(3)
+        //         })
+        //     })
+        // })
+
+        let request = new XMLHttpRequest()
+
+        function getRequest() {
+            //open -> prepare request and this doesn't send data
+            //syntax => request.open(method, url, async)
+            request.open("GET", "https://jsonplaceholder.typicode.com/posts", true)
+            // true/false -> synchronous/asynchronous
+            request.send() // -> to send request
+            request.responseType = "json" // -> set type of response date
+            request.onload = function () {
+                console.log(request.response)
+            }
+        }
+        // sendRequest()
+        function sendData() {
+            let file = document.getElementById("inp")
+            console.log(file.files)
+            console.log(file.files[0])
+            request.open("POST", "https://jsonplaceholder.typicode.com/posts", true)
+
+            request.upload.onprogress = function (event) {
+                console.log((event.loaded / event.total) * 1000)
+            }
+            console.log(request)
+            request.send(file.files[0]) //=> to send data to server
+        }
+        // sendData()
+
+        function cancleUpload() {
+            request.abort()
+            console.log("Upload Cancelled..")
+        }
+    </script>
+</body>
+
+</html>

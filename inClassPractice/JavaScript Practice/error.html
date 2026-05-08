@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        //runtime errors
+        //compilation errors
+
+        try {
+            //if there is some error in runtime it will return error to catch block.
+            function func1() {
+                console.log(123)
+                if (abc === undefined) {
+                    // throw is used to generate customised error
+                    throw "There was an error"
+                }
+            }
+
+            main()
+        } catch (error) {
+            //catch comes with parameter error, which has stored the detailed of error.
+
+            console.log(error.name)
+            console.log(error.message)
+            console.log(error.stack)// not official, it is provided by the browser
+        }
+
+        function main() {
+            func1()
+        }
+
+    </script>
+</body>
+
+</html>

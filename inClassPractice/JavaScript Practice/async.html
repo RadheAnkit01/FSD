@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        //priority
+        //Main task => Call Stack
+        // MicroTask Queue (High Priority) -> execute all at a time
+        // MacroTask Queue (Low Priority) -> execute one by one
+
+        console.log(1);
+        setTimeout(() => {
+            console.log(2)
+        }, 0); //=> settimeout will go to macrotask queue section
+        Promise.resolve().then(() => console.log("got result"));
+        //=> Promise will go to microtask section
+
+        console.log(3)
+
+
+        // priority
+
+        // 1. console.log -> callstack
+        // 2. Promise -> microtask queue
+        // 3. setTimeout -> macrotask queue
+
+
+    </script>
+</body>
+
+</html>

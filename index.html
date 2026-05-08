@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Toggle Paragraph Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid black;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Toggle Paragraph Example</h1>
+
+        <button onclick="toggleParagraph()">Toggle</button>
+
+        <p id="para">
+            This is a sample paragraph. Click the button to hide/show me!
+        </p>
+    </div>
+
+    <script>
+        function toggleParagraph() {
+            let paragraph = document.getElementById("para");
+            paragraph.classList.toggle("hide");
+        }
+
+        let text = "Aeiou";
+        let vowel = "aeiouAEIOU";
+        let ct = 0;
+        for (let i = 0; i < text.length; i++) {
+            if (vowel.includes(text[i])) {
+                ct++;
+            }
+        }
+        console.log(ct)
+    </script>
+
+</body>
+
+</html>

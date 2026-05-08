@@ -29,8 +29,48 @@
         //impure function -> which change anything outside th function
 
 
+        //currying
+        console.log(funcA(sum)(12)(90))
+        console.log(funcA(sub)(12)(90))
+        console.log(funcA(absDiff)(12)(90))
+
+        function funcA(fn) {
+            function funcB(a) {
+                function funcC(b) {
+                    return fn(a, b)
+                }
+                return funcC
+            }
+            return funcB
+        }
+        function sum(a, b) {
+            return a + b
+        }
+        function sub(a, b) {
+            return a - b
+        }
+        function absDiff(a, b) {
+            return (a - b) * -1
+        }
+
+
+        //
+        let time = new Date()
+        console.log(time.getHours())
+        let log = (time) => {
+            return (msg) => {
+                return (priority) => {
+                    return `${time.getHours()} : ${time.getMinutes} : ${time.getSecond}`
+                }
+            }
+        }
+        //missing something need to fix it.
+        console.log(log()("hello")("hi"))
+
 
     </script>
+    <script src="function2.1.js"></script>
+    <script src="function2.2.js"></script>
 </body>
 
 </html>
