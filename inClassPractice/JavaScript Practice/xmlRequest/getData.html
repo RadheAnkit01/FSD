@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Data</title>
+</head>
+
+<body>
+    <button onclick="sendRequest()">Send Request to get</button>
+    <ul id="list"></ul>
+    <script>
+        let req = new XMLHttpRequest()
+
+        function sendRequest() {
+            req.open("GET", "https://jsonplaceholder.typicode.com/users", true) // prepare data to send request.
+
+            req.send() // this is actually send request to the server.
+
+            //to convert data into json or other.
+            req.responseType = 'json';
+            //
+            req.onload = function () {
+                for (let user of req.response) {
+                    let li = document.createElement("li")
+                    li.innerText = user.name;
+                    list.append(li)
+                }
+            }
+
+            req.onreadystatechange = function () {
+                console.log(req.readyState)
+            }
+        }
+    </script>
+</body>
+
+</html>

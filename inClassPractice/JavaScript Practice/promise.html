@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+
+    <input id="num" type="number" placeholder="Enter Number">
+    <button onclick="sendPromise()">Send Promise</button>
+
+    <script>
+        //promise rejected
+        console.log(new Promise((resolve, reject) => { reject("Not Fullfiled") }).catch(err => { console.log(err) }))
+        console.log(
+            new Promise((resolve, reject) => {
+                reject("Not Fullfiled");
+            }).catch(err => {
+                console.log("Caught it:", err);
+            })
+        );
+        //promise resolved
+        console.log(new Promise((resolve, reject) => { resolve("Yes Fullfiled") }))
+
+        function sendPromise() {
+            let num = document.getElementById("num").value;
+
+            let promise = new Promise((resolve, reject) => {
+                if (num % 2 == 0) {
+                    setTimeout(() => {
+                        resolve("Even")
+                    }, 2000)
+                } else {
+                    reject("odd")
+                }
+            })
+
+            promise
+                .then((result) => console.log(result))
+                .catch((err) => console.log(err))
+        }
+
+    </script>
+</body>
+
+</html>
