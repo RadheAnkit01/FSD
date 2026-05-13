@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = `{ "id" : 12, "name" : "Ankit", "class" : "B.Tech"}`
+
+        let obj = {
+            "id": 12,
+            "name": "Radhe",
+            "class": "B.Tech"
+        }
+
+        let result1 = JSON.parse(str) // Converts a JSON string → JavaScript object
+        console.log(result1)
+        console.log(typeof result1)
+
+        let result2 = JSON.parse(str, function (key, value) {
+            if (key == "name") { value = "New Value" }
+            return value
+        })
+        console.log(result2)
+        console.log(typeof result2)
+
+
+        let result3 = JSON.stringify(obj) //Converts a JavaScript object → JSON string 
+        console.log(result3)
+        console.log(typeof result3)
+
+        // JSON.stringify(obj, function(key,valur){}, 0)
+        //para1 = object
+        //para2 = function(key,value)
+        //para3 = indentation(how many space, want to give for indentation)
+        let result4 = JSON.stringify(obj, function (key, value) {
+            if (key == "name") { value = "New Value" }
+            return value
+        }, 0)
+        console.log("result4 : ", result4)
+        console.log(typeof result4)
+
+    </script>
+</body>
+
+</html>

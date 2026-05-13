@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch function</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        //Fetch and Promise
+        //async/await
+
+
+        // console.log(fetch("data.js"))
+
+        // let req = fetch("data.json").then((req) => {
+        //     if (req.status != 200) {
+        //         throw "Error : 200 not found";
+        //     }
+        //     return req.text()
+
+        // })
+
+        // console.log(req)
+
+        //method 1 by async await 
+        async function getResult() {
+            let req = await fetch("script1.js")
+            if (req.status != 200) {
+                throw "error"
+            }
+            let data = await req.text();
+            return data;
+        }
+        async function getResult2() {
+            let promise = new Promise((resolve, reject) => {
+                let num = 4;
+                if (num % 2 == 0) {
+                    resolve("Even")
+                } else {
+                    reject("Odd")
+                }
+            })
+
+            let res = await promise;
+            return res;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

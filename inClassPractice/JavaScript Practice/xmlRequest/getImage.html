@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get images</title>
+</head>
+
+<body>
+    <script>
+
+        let getImage = new XMLHttpRequest()
+
+        const imgUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx-SfzikhR2Xc7K_zwJEPObbGJ9TxD68OcwA&s"
+        getImage.open("GET", imgUrl)
+        getImage.send()
+
+        getImage.responseType = "arraybuffer"
+
+        getImage.onload = function () {
+            console.log(getImage.response)
+        }
+    </script>
+</body>
+
+</html>

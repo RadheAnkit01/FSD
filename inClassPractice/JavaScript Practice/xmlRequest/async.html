@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        //priority
+        //Main task => Call Stack
+        // MicroTask Queue (High Priority) -> execute all at a time
+        // MacroTask Queue (Low Priority) -> execute one by one
+
+        // console.log(1);
+        // setTimeout(() => {
+        //     console.log(2)
+        // }, 0); //=> settimeout will go to macrotask queue section
+        // Promise.resolve().then(() => console.log("got result"));
+        //=> Promise will go to microtask section
+
+        // console.log(3)
+
+
+        // priority
+
+        // 1. console.log -> callstack
+        // 2. Promise -> microtask queue
+        // 3. setTimeout -> macrotask queue
+
+
+        //
+        async function resolvePromise() {
+            try {
+                abc
+                return 12
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        //both are same 
+        let promise = new Promise((resolve, reject) => {
+            resolve(12)
+        })
+
+        async function resolvePromise2() {
+            try {
+                let promise1 = new Promise((resolve, reject) => {
+                    resolve("promise 1")
+                })
+                let promise2 = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve("promise 2")
+                    })
+                })
+
+                let val1 = await promise1;
+                let val2 = await promise2;
+                console.log(val1, val2);
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
+        // console.log(resolvePromise2())
+        resolvePromise2()
+
+
+
+    </script>
+</body>
+
+</html>

@@ -30,9 +30,7 @@
 
             let promise = new Promise((resolve, reject) => {
                 if (num % 2 == 0) {
-                    setTimeout(() => {
-                        resolve("Even")
-                    }, 2000)
+                    resolve("Even")
                 } else {
                     reject("odd")
                 }

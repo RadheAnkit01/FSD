@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form id="my-form" action="" autocomplete="off">
+        <label for="username">Username <br></label>
+        <input type="text" name="username" id="username" minlength="4" required>
+        <br><br>
+        <label for="email">Email <br></label>
+        <input type="text" name="email" id="email" required>
+        <br><br>
+        <button type="submit">Submit</button>
+        <button type="reset">Cancel</button>
+    </form>
+
+    <script>
+        let inpUser = document.getElementById("username")
+        let myform = document.getElementById("my-form")
+
+
+        inpUser.addEventListener("input", () => {
+            console.log(inpUser.validity)
+
+            if (inpUser.validity.tooShort) {
+                // inpUser.setCustomValidity("Min Length 4 Allowed")
+            }
+        })
+
+        myform.addEventListener("submit", (event) => {
+            event.preventDefault()
+
+            if (!myform.reportValidity()) {
+                if (!myform.checkValidity()) {
+                    alert("Form Submitted")
+                }
+            }
+            // console.log(myform.checkValidity())
+            // console.log(myform.reportValidity())
+        })
+    </script>
+</body>
+
+</html>
