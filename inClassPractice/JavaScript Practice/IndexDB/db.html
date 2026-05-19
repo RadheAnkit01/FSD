@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Database</title>
+</head>
+
+<body>
+    <h1> Index Database</h1>
+
+    <script>
+
+        function createDB(dbname, version) {
+            let request = indexedDB.open(dbname, version)
+            return request;
+            // request.onsuccess = function (event) {
+            //     let db = event.target.result
+            // }
+        }
+
+
+        function getTable(tableName, primaryKey) {
+            let db = createDB("schoolDB", 1)
+            //onupgradeneeded event will be triggered when we are creating the database for the first time or when we are upgrading the database version
+            db.onupgradeneeded = function (event) {
+                let db = event.target.result
+                //it will give us the database instance which is being created or upgraded
+
+                db.createObjectStore(tableName, {
+                    keyPath: primaryKey
+                })
+            }
+        }
+        getTable("students", "id")
+        table.onsuccess = function (event) {
+            let tableAccess = event.target.result
+
+            let transaction = tableAccess.transaction("students", "readwrite")
+            store.add({
+                id: 2, name: "Ankit"
+            })
+            let readRequest = store.get(2)
+            readRequest.onsuccess = function (event) {
+                console.log(event.target.result)
+            }
+
+            store.put({
+                id: 2, name: "Ankit Kumar"
+            })
+            store.delete(2)
+
+        }
+
+
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="getLocation()">Get Location</button>
+    <button onclick="startLocationTracking()">Start Tracking</button>
+    <button onclick="stopLocationTracking()">Stop Tracking</button>
+
+    <script>
+        function getLocation() {
+            try {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log(position);
+                }, (error) => {
+                    console.error(error);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        let watchId;
+
+        function startLocationTracking() {
+            try {
+                watchId = navigator.geolocation.watchPosition(function (position) {
+                    console.log(position);
+                }, (error) => {
+                    console.error(error);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        function stopLocationTracking() {
+            try {
+                navigator.geolocation.clearWatch(watchId);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+
+        function storeLocation() {
+
+        }
+    </script>
+</body>
+
+</html>

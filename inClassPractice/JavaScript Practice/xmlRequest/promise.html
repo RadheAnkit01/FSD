@@ -35,10 +35,19 @@
                     reject("odd")
                 }
             })
+            //promise.then -> for resolved promise
+            //promise.catch -> for rejected promise
 
             promise
                 .then((result) => console.log(result))
                 .catch((err) => console.log(err))
+        }
+
+        async function getResult() {
+            let promise = new Promise((resolve, reject) => {
+                resolve("Promise Resolved")
+            })
+            console.log(await promise)
         }
 
     </script>

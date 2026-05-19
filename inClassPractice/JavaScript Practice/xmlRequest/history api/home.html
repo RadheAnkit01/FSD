@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+
+<body>
+
+    <!-- History Api -->
+
+
+    <br><br>
+    <!-- <a href="contact.html">Contact Page</a>
+    <a href="about.html">About Page</a> -->
+    <a id="home">Home Page</a>
+    <a id="contact">Contact Page</a>
+    <a id="about">About Page</a>
+
+    <br><br>
+    <!-- <button onclick="prev()">Previous Page</button>
+    <button onclick="next()">Next Page</button>
+    <button onclick="ref()">Refresh Page</button> -->
+
+    <h1 id="heading">Home Page</h1>
+
+
+
+    <h1>Types of Storage</h1>
+    <h3>
+        <ul>
+            <li>local Storage</li>
+            <li>session Storage</li>
+            <li>cookies Storage</li>
+        </ul>
+    </h3>
+
+
+    <div>
+        <h1 id="op">0</h1>
+        <button onclick="increment()">Increment Value</button>
+    </div>
+
+    <script>
+
+
+        let pages = {
+            home: {
+                title: "Home Page"
+            },
+            contact: {
+                title: "Contact Page"
+            },
+            about: {
+                title: "About Page"
+            }
+
+        }
+
+        function loadpages(route) {
+            let page = pages[route]
+            if (page) {
+                let heading = document.getElementById("heading")
+                heading.innerText = page.title
+            } else {
+                let heading = document.getElementById("heading")
+                heading.innerText = "Page Not Found"
+            }
+        }
+
+        document.querySelectorAll("a").forEach((elem) => {
+            elem.addEventListener("click", () => {
+                let page = elem.getAttribute("id")
+                history.pushState(
+                    { state: "changed" },
+                    "",
+                    page
+                )
+                loadpages(page)
+            })
+        })
+
+        //data storage
+        let userdata = { name: "Ankit", age: 18 }
+        //to store data on local storage
+        localStorage.setItem("userdata", JSON.stringify(userdata))
+        //to get data from local storage
+        let gotData = JSON.parse(localStorage.getItem("userdata"))
+        // console.log("get data : ", gotData)
+
+        //to store data on session storage
+        sessionStorage.setItem("userdata", JSON.stringify(userdata))
+
+
+        //example of store data
+        let count;
+        function checkCount() {
+            let val = JSON.parse(localStorage.getItem("count"))
+            // console.log(val)
+            if (val == null) {
+                count = 0
+            }
+            count = val.count
+            document.getElementById("op").innerText = count;
+            // console.log(count)
+        }
+        checkCount()
+
+        function increment() {
+            count++
+            localStorage.setItem("count", JSON.stringify({ count: count }))
+            document.getElementById("op").innerText = count;
+            // let val = JSON.parse(localStorage.getItem("count"))
+        }
+
+
+        //popstate
+
+        window.addEventListener("popstate", () => {
+
+        })
+
+
+        //for history
+        // console.log(history)
+        // function prev() {
+        //     history.go(-1)
+        // }
+        // function next() {
+        //     history.go(1)
+        // }
+
+    </script>
+</body>
+
+</html>

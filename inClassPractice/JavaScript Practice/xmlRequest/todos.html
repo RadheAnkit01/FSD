@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="list">
+
+    </ul>
+    <script>
+        function displayData(data) {
+            for (let title of data) {
+                let li = document.createElement("li")
+                li.innerText = title.todo
+                document.getElementById("list").appendChild(li)
+            }
+        }
+
+        async function getRequest() {
+            let promise = await fetch("http://dummyjson.com/todos")
+            let data = await promise.json()
+            console.log(data.todos)
+            displayData(data.todos)
+        }
+        getRequest()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let promise = fetch("https://jsonplaceholder.typicode.com/posts")
+
+        promise.then((result) => {
+            console.log(result)
+            // return result.text()
+            return result.json()
+        }).then((result) => {
+            // console.log(JSON.parse(result))
+            console.log(result)
+        })
+        async function getRequest() {
+            let promise = await fetch("http://dummyjson.com/todos")
+            let data = await promise.json()
+            console.log(data.todos)
+        }
+        getRequest()
+    </script>
+</body>
+
+</html>
