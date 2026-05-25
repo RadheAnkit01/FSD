@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Properties</title>
+</head>
+
+<body>
+
+    <!-- <button onclick="openWindow()">Open New Window</button>
+    <button onclick="closeWindow()">Close This Window</button> -->
+    <!-- <button onclick="addEvent()">Add Event Listner Function</button>
+    <button onclick="removeEvent()">Remove Event Listner Function</button>
+    <button id="btn3">Event Listen</button> -->
+
+    <div id="cartBox">
+        <h1>Cart</h1>
+
+    </div>
+    <div>
+        <h1>Checkout</h1>
+
+    </div>
+
+    <script>
+        // window.location = "new.html" --> redirect to assigned page
+
+
+        // --> it opens a new window tab of width and height.
+        // function openWindow() {
+        //     window.open("/", "test", "height= 600, width=600")
+        // }
+        // function closeWindow() {
+        //     window.close()
+        // }
+
+        let cart = {
+            name: "mobile",
+            price: 12987,
+            brand: "Xiomi",
+            quantity: 3,
+            totalPrice: function () {
+                return this.price * this.quantity
+            },
+            printDetails: function () {
+                return `${this.quantity} ${this.price}`
+            }
+        }
+        for(let key in cart){
+            if(typeof cart[key] !== "function"){
+                console.log()
+                // let para = document.createElement("div").innerText = 
+                document.getElementById("cartBox").innerHTML += `${key} : ${cart[key]} <br>`
+            }
+        }
+        cart.qty = parseInt(prompt("Enter the qty",1))
+        document.write(`Total: ${cart.totalPrice()} <br>  ${cart.printDetails()}`)
+
+        let orderHistory = cart
+        cart = null
+        console.log(orderHistory)
+
+        // function removeEvent() {
+        //     document.getElementById("btn3").removeEventListener("click", callback)
+        //     console.log("event removed")
+        // }
+        
+        // function addEvent() {
+        //     document.getElementById("btn3").addEventListener("click", callback)
+        //     console.log("event added")
+        // }
+
+        // let callback = function () {
+        //     console.log("Btn Clicked")
+        // }
+    </script>
+</body>
+
+</html>

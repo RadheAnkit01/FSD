@@ -23,6 +23,7 @@
 
         async function getRequest() {
             let promise = await fetch("http://dummyjson.com/todos")
+            // let data = await promise.arrayBuffer()
             let data = await promise.json()
             console.log(data.todos)
             displayData(data.todos)

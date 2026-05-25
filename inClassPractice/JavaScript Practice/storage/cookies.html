@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        document.cookie = "user= ayush kumar"
+        document.cookie = "user=" + encodeURIComponent("Ayush Kumar")
+        document.cookie = "theme=light"
+
+        //save data in cookie with path
+        document.cookie = "user= Ankit; path=/admin"
+
+
+        console.log(document.cookie)
+    </script>
+</body>
+
+</html>
