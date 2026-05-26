@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Define Property of Object</title>
+</head>
+
+<body>
+
+    <h1>Cart</h1>
+
+    <script>
+        let cart = {
+            name: "mobile",
+            price: 25999,
+            brand: "Samsung",
+
+        }
+        //define new properties in object
+        Object.defineProperty(cart, "brand", {
+            writable: false, // it will not be reassign.
+            enumerable: false, // enumerable meanse - it will not iteratable, it can only be access by key.
+            value: "Nokia",
+            configurable: false, // it prevent deletion of data using keyword delete.
+        })
+
+        Object.keys(cart)// it return an array with all enumerable(true) keys.
+        console.log(Object.keys(cart))
+
+        Object.values(cart) // it return an array with all enumerable(true) values.
+        console.log(Object.values(cart))
+
+        console.log(Object.entries(cart))
+        // it return an array with all enumerable(true) values.
+        // Object.entries(cart).map((val) => {
+        //     let [val1, val2] = val
+        //     console.log(val1, val2)
+        // })
+        Object.entries(cart).map(([val1, val2]) => {
+            console.log(val1, val2)
+        })
+
+        cart.brand = "Nokia" //
+        // console.log(cart)
+
+        // //optional chaining
+        // console.log(cart.addre.val) // this cause error
+        // console.log(cart.addr?.val) // by putting ? we can handel error
+
+        async function getReq(url) {
+            try {
+                let request = await fetch("https://dummy.com/todos")
+
+                console.log(request)
+                if (request.status != 200) {
+                    throw new Error("Response Not Found")
+                }
+                let data = await request.json()
+                console.log(data)
+            } catch (err) {
+                console.log("error : ", err)
+            }
+
+        }
+        getReq()
+
+    </script>
+</body>
+
+</html>
