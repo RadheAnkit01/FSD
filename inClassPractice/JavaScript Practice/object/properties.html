@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Properties</title>
+</head>
+
+<body>
+    <h1>Properties </h1>
+    <ul>
+        <li>Assign</li>
+        <li>Keys</li>
+        <li>Values</li>
+        <li>Optional chaining - <b>padhaya jaya par samajh nhi aaya (funny)</b></li>
+        <li>Entries</li>
+        <li>FromEntries</li>
+        <li>Entries to Map</li>
+        <li>Define Property</li>
+        <li>Define Properties</li>
+    </ul>
+    <script>
+
+
+        let target = {
+            a: 1,
+            b: 2
+        }
+        let source = {
+            b: 1,
+            d: 4
+        }
+        let source2 = {
+            b: 16,
+            d: 47
+        }
+
+        let assigned = Object.assign(target, source, source2)
+        // it will return a new object where both obj are combined.
+        // if there is same key in more than one then the value will be of 2nd args or next args.
+        // console.log(assigned)
+
+        //
+        let employee = {
+            id: 354,
+            name: "Hemant",
+            salary: 349
+
+        }
+        let cart = {
+            name: "mobile",
+            price: 25999,
+            brand: "Samsung",
+
+        }
+
+        // console.log(Object.keys(employee))
+
+        Object.keys(cart)// it return an array with all enumerable(true) keys.
+        // console.log(Object.keys(cart))
+
+        Object.values(cart) // it return an array with all enumerable(true) values.
+        // console.log(Object.values(cart))
+
+        //convert into entries
+        enteries = Object.entries(employee)
+        convertedObj = Object.fromEntries(enteries)
+        // console.log(enteries)
+        // console.log(convertedObj)
+
+        //entries to map
+        Object.entries(cart).map(([val1, val2]) => {
+            console.log(val1, val2)
+        })
+
+
+        //define property
+
+        //define new properties in object
+        Object.defineProperty(cart, "brand", {
+            writable: false, // it will not be reassign.
+            enumerable: false, // enumerable meanse - it will not iteratable, it can only be access by key.
+            value: "Nokia", //default value
+            configurable: false, // it prevent deletion of data using keyword delete.
+        })
+
+
+
+
+        //define properties for each key
+        Object.defineProperties(employee, {
+            "id": {
+                writable: false, //for rewrite or not
+                value: 123, // default value
+                configurable: false, //prevent from deletion or not
+                enumerable: true // iteratable or not
+            },
+            "name": {
+                value: "Radhe",
+                writable: false
+            },
+            "salary": {
+                value: 999999,
+                writable: true
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
