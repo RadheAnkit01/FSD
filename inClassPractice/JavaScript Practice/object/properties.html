@@ -106,6 +106,14 @@
             }
         })
 
+        //getOwnPropertyNames(object) --> it will also show all unenumerable keys also.
+        Object.getOwnPropertyNames(employee)
+
+        //getOwnPropertyDescriptor will give property of a single key.
+        Console.log(Object.getOwnPropertyDescriptor(employee, salary))
+
+        //getOwnPropertyDescriptors will give property of all keys.
+        Console.log(Object.getOwnPropertyDescriptor(employee))
 
 
     </script>

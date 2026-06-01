@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //Method 1 of inheritance
+        let carMethod = {
+            drive: function () {
+                return this.make + "drives"
+            }
+        }
+        let newCar = Object.create(carMethod)
+        newCar.make = "hyundai"
+
+        console.log(newCar.drive())
+
+
+
+        //Method 2 of inheritance
+        let myCar = new Car("suziki", "swift")
+
+        Car.prototype.drive = function () {
+            return this.make + "Drives"
+        }
+
+        let obj = {}
+        Object.setPrototypeOf(obj, myCar)
+
+    </script>
+</body>
+
+</html>
