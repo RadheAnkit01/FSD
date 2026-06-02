@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor function</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // internal structure of constructor looks like this
+        // function Vehicle(width){
+        //     this = {
+
+        //     }
+        //     this.width = width
+        //     return this
+        // }
+
+
+        // Constructor function
+        function Vehicle(name) {
+            this.name = name
+            this.drive = function () {
+                return this.name + " drives"
+            }
+        }
+        let myVehicle = new Vehicle("porsche")
+        console.log(myVehicle.drive())
+
+
+
+        //factory function - a function which where we manually return something
+        //example
+        function Car(name) {
+            this.name = name
+            return {
+                name: name
+            }
+        }
+
+        //Method 1
+        function Calculator1(a, b) {
+            this.divide = function () {
+                return a / b
+            }
+        }
+        let myCalc = new Calculator1(9, 5)
+        console.log(myCalc.divide())
+
+        function Calculator(a, b) {
+            this.a = a
+            this.b = b
+        }
+        Calculator.prototype.divide = function () {
+            return this.a / this.b;
+        }
+
+        console.log(new Calculator(10, 0))
+        console.log(new Calculator(10, 20).divide())
+        console.log(new Calculator(30, 10).divide())
+        console.log(new Calculator(10, 0).divide())
+
+    </script>
+</body>
+
+</html>
