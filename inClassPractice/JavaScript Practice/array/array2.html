@@ -36,9 +36,9 @@
 
         // console.log(result3) //it will print (4) [123, 123, 123, 123]
 
-        //reduce methods -> 
+        //reduce methods -> when you need to return only single value after performing some oprtation .
         let arr2 = [23, 65, 87, 34, 12, 43, 76, 87, 45, 34, 45, 70]
-        let result1arr2 = arr2.reduce((accumulator, currentValue) => {
+        let result1arr2 = arr2.reduce((accumulator, currentValue, index) => {
             // console.log(accumulator + "  " + currentValue)
             return accumulator + currentValue
         }, 12  //this is initial value
@@ -55,13 +55,13 @@
 
         // console.log(result2arr2) //it will print (4) [123, 123, 123, 123]
 
-        // every methods -> it will return true/false based on condition and work like and operator.
+        // every methods -> it will return true/false based on condition and work like 'and' operator.
         let result3arr2 = arr2.every((elem) => {
             return elem > 40
         })
         // console.log(result3arr2)
 
-        // some methods -> it will return true/false based on condition and work like or operator.
+        // some methods -> it will return true/false based on condition and work like 'or' operator.
         let result4arr2 = arr2.some((elem) => {
             return elem > 40
         })
