@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        class Dob {
+            constructor(dob) {
+                this.dobYear = new Date(dob).getFullYear()
+                this.currYear = new Date().getFullYear()
+            }
+            getAge() {
+                return this.currYear - this.dobYear
+            }
+        }
+        let dob1 = new Dob("2005-11-25")
+        console.log(dob1.getAge())
+    </script>
+</body>
+
+</html>
