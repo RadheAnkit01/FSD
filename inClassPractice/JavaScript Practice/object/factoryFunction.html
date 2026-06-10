@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //Factory Function - A factory function in JavaScript is any regular function that creates and returns a new object without using the new keyword.
+        function createStudent(name, lastName, age) {
+            const user = {
+                firstName: name,
+                lastName: lastName,
+                age: 24,
+                // getDOB: function () {
+                //     return new Date().getFullYear() - user.age
+                // },
+                // getFullName: function () {
+                //     return `${user.firstName} ${user.lastName}`
+                // }
+            }
+            return user
+        }
+        const us1 = createStudent("Ankit", "Raj", 21)
+        const us2 = createStudent("Salaih", "Hasan", 20)
+
+        // us1.getDob == us2.getDob will give false
+        console.log(us1.getDob == us2.getDob)
+        // here i will  allocate new memory all the time when new objects will created.
+        
+        //solve the above problems using prototupe
+    </script>
+</body>
+
+</html>

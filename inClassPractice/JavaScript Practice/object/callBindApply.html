@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>call(), apply(), and bind() are built-in methods used to explicitly set the execution context—the this
+        keyword—inside a function. <br>They allow you to reuse methods across different objects without rewriting code.
+    </h1>
+
+    <script>
+
+
+
+        function greet(city, pincode) {
+            console.log(`My name is ${this.fullname} and my age is ${this.age}`)
+            console.log(`My city is ${city} and my pincode is ${pincode}`)
+        }
+        const student = {
+            fullname: "Ankit Raj",
+            age: 20,
+            salary: 200000
+        }
+
+        greet.call(student, "New Delhi", 110031)
+        // greet.call(student, city, pincode)
+        //call, apply bind => function ke andar this keyword => point apje kisi object pe jispe aap chahte ho.
+        //call , apply, and bind => function pe implemment hoga.
+
+        // call -> arguments -> commas saperated values
+        // apply -> arguments -> single array
+        // bind -> arguments -> commas saperated values
+
+
+        greet.apply(student, ["New Delhi", 110031])
+        // greet.apply(function, [city, pincode])
+
+        // call and apply immidiately executes. and bind will do bind and can execute later when required.
+
+        var a = greet.bind(student, "New Delhi", 110031)
+        // greet.bind (function, city, pincode) -> it will binded for now and can be call/execute when required.
+        a()
+
+    </script>
+</body>
+
+</html>
