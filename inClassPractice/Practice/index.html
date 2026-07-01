@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice End SEM</title>
+</head>
+
+<body>
+
+
+    <button id="b1">like (0)</button>
+    <button id="b2">like (0)</button>
+    <button onclick="new ToastNotification('Action Successful!').show()">
+        Show Toast
+    </button>
+
+    <script>
+
+        function enforceDesktopView() {
+
+            // Get viewport width
+            const width = window.innerWidth;
+
+            // Check desktop size
+            if (width < 524) {
+
+                // Create warning div
+                const warning =
+                    document.createElement("div");
+
+                warning.className = "warning";
+
+                warning.innerText =
+                    "Please switch to a desktop device. You will be redirected in 5 seconds.";
+
+                // Style the div
+                warning.style.position = "fixed";
+                warning.style.top = "0";
+                warning.style.left = "0";
+                warning.style.width = "100vw";
+                warning.style.height = "100vh";
+                warning.style.background = "red";
+                warning.style.color = "white";
+                warning.style.display = "flex";
+                warning.style.justifyContent = "center";
+                warning.style.alignItems = "center";
+                warning.style.fontSize = "24px";
+
+                // Append to body
+                document.body.appendChild(warning);
+
+                // Redirect after 5 sec
+                setTimeout(() => {
+                    window.location.href =
+                        "https://mobile.company.com";
+                }, 5000);
+            }
+        }
+        enforceDesktopView()
+
+        function ToastNotification(message) {
+
+            // initialize message
+            this.message = message;
+
+            // create div
+            this.toast = document.createElement("div");
+
+            this.toast.innerText = this.message;
+
+            // optional styling
+            this.toast.style.background = "lightcoral";
+            this.toast.style.padding = "20px";
+            this.toast.style.margin = "20px";
+            this.toast.style.border = "1px solid black";
+        }
+
+
+        ToastNotification.prototype.show = function () {
+
+            // append to body
+            document.body.appendChild(this.toast);
+
+            // preserve 'this'
+            setTimeout(function () {
+                this.toast.remove();
+            }.bind(this), 3000);
+        };
+    </script>
+</body>
+
+</html>

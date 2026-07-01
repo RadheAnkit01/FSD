@@ -4,16 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Advanced - Question Paper Set 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #1a237e;
+        }
+
+        .part {
+            margin-top: 30px;
+            border-top: 3px solid #1a237e;
+            padding-top: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .marks {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
+    <a href="index.html" style="font-size: 40px;">Link To Question Paper 2</a>
 
+    <h1>JavaScript Web Developer (Advanced JS) - Question Paper Set 1</h1>
+    <p><strong>Total Marks: 60 | Time: 3 Hours</strong></p>
 
-    <script>
-        console.log(typeof null)
-        // typeof null
-    </script>
+    <div class="part">
+        <h2>Part A (30 Marks)</h2>
+        <p><strong>Answer any 5 questions. Each question carries 5 marks.</strong></p>
+
+        <div class="question">
+            <p><strong>Q1.</strong> Create a simple HTML page with a form containing two number inputs and a button
+                labeled "Calculate Sum". On button click, use JavaScript to display the sum in a green highlighted
+                paragraph below the form. Use <code>let</code> and <code>const</code> appropriately. Validate that both
+                inputs are numbers using conditionals. Integrate basic CSS for styling the form and result area.</p>
+            <span class="marks">[5 Marks]</span>
+        </div>
+
+        <div class="question">
+            <p><strong>Q2.</strong> Build an HTML page with a button "Toggle Theme". Clicking it should switch the
+                background color of the body between dark (#121212) and light (#ffffff) mode, and update text color
+                accordingly. Use a function declaration to handle the toggle logic with block scope variables. Add
+                smooth transition using CSS.</p>
+            <span class="marks">[5 Marks]</span>
+        </div>
+
+        <div class="question">
+            <p><strong>Q3.</strong> Create a dynamic list using an array of objects (e.g., students with name and
+                score). Render the list as an unordered HTML list. Include a search input that filters the list in
+                real-time using array methods like <code>filter()</code> and DOM updates. Style the list with
+                alternating row colors using CSS.</p>
+            <span class="marks">[5 Marks]</span>
+        </div>
+
+        <div class="question">
+            <p><strong>Q4.</strong> Create a webpage with a product card (image, name, price) fetch from
+                http://dummyjson.com/products. Use a Set to track "wishlist" items. Add "Add to Wishlist" button that
+                prevents duplicates and shows total wishlist products. Persist wishlist using localStorage.</p>
+            <span class="marks">[5 Marks]</span>
+        </div>
+
+        <div class="question">
+            <p><strong>Q5.</strong> Create two sections: one for adding tasks (array), another for completed tasks. Move
+                tasks between them on button click.</p>
+            <span class="marks">[5 Marks]</span>
+        </div>
+    </div>
+
+    <div class="part">
+        <h2>Part B (30 Marks)</h2>
+        <p><strong>Answer all 2 questions. Each carries 10 marks.</strong></p>
+
+        <div class="question">
+            <p><strong>Q6.</strong> Develop a "Todo Application" UI with HTML form (input + add button), a list of
+                todos, and filters (All, Active, Completed). Implement add, delete, and toggle complete functionality.
+                Handle errors if input is empty. Style with responsive CSS Flexbox/Grid and hover effects.</p>
+            <span class="marks">[10 Marks]</span>
+        </div>
+
+        <div class="question">
+            <p><strong>Q7.</strong> Build a "User Profile Manager" page. Allow creating/delete user objects (name,
+                email, skills as Set). Use OOP-style constructor or class-like structure with methods. Implement form
+                validation with try-catch for error handling. Display list of users with search. Persist using
+                localStorage.</p>
+            <span class="marks">[10 Marks]</span>
+        </div>
+    </div>
+
 </body>
 
 </html>

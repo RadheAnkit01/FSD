@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="price">Enter Price</label>
+    <input type="number" name="price" id="price">
+    <label for="name">Enter Name</label>
+    <input type="text" name="name" id="name">
+    <button onclick="addProd()">Add Product</button>
+    <ul id="list"></ul>
+    <h2>Sorted List by Price</h2>
+    <button onclick="displaySortedProduct()">Sort by Price</button>
+    <ul id="sortedlist"></ul>
+    <script>
+        let productList = [];
+        function addProd() {
+            let inpPrice = document.getElementById("price").value
+            let inpName = document.getElementById("name").value
+            let product = { name: inpName, price: inpPrice }
+            productList.push(product)
+
+            let list = document.getElementById("list")
+            let li = document.createElement("li")
+            li.innerText = `Product Name : ${inpName},  Product Price : ${inpPrice}`
+            list.appendChild(li)
+            // console.log(productList)
+        }
+
+        // function displayProd(productList) {
+        //     let list = document.getElementById("list")
+        //     let li = document.createElement("li")
+        //     li.innerText = `Name : ${inpName} Price : ${inpPrice}`
+        //     list.appendChild(li)
+        //     console.log(productList)
+        // }
+
+        function displaySortedProduct() {
+            productList.sort((a, b) => a.price - b.price)
+            let list = document.getElementById("sortedlist")
+            productList.forEach(element => {
+                let newel = document.createElement("li")
+                newel.innerText = `Name : ${element.name},  Price : ${element.price}`
+                list.append(newel)
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>
